@@ -2,10 +2,14 @@
 An interactive RESTful API for tracking shelter dog's daily activities.
 
 Happy Tails Participants
-Erika Salcedo 		E: erikasalcedo013@gmail.com 	Github: es2013
-Shellie Nguyen	E:shelliednnguyen@gmail.com	Github: shellienguyen
-Alex Reveles		E:alexreveles24@gmail.com 		Github: alexreveles
-Nathan Stephens 	E:nathan.yukio.stephens@gmail.com  Github: nystephens
+
+Erika Salcedo 		Email: erikasalcedo013@gmail.com 	  Github: es2013
+
+Shellie Nguyen	  Email: shelliednnguyen@gmail.com	  Github: shellienguyen
+
+Alex Reveles		 Email: alexreveles24@gmail.com 		Github: alexreveles
+
+Nathan Stephens 	 Email: nathan.yukio.stephens@gmail.com   Github: nystephens
 
 
 Working PPT:

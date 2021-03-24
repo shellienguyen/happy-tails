@@ -2,7 +2,7 @@
     box-sizing: border-box;
   }
   
-  body, html {
+body, html {
     height: 100%;
     padding: 0;
     margin: 0;
@@ -10,12 +10,17 @@
     color: #333;
   }
   
-  body {
+body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    justify-content: center;
   }
 
-  main {
+main {
     flex: 1 0 auto;
+  }
+
+.align-center {
+    justify-content: center;
   }

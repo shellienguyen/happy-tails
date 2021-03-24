@@ -20,12 +20,12 @@ router.get('/', (req, res) => {
 });
 
 //get kennel by id to find which dogs are in said kennel id
-router.get('/k_id', (req, res) => {
+router.get('/:k_id', (req, res) => {
     Kennel.findOne({
         where: {
             k_id:req.params.k_id
         },
-        include:[
+        includes:[
             {
             model:Canine,
             attributes: ['c_name', 'c_id']

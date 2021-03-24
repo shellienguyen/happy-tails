@@ -2,32 +2,58 @@ const router = require('express').Router();
 const withAuth = require('../../utils/auth')
 const sequelize = require('../../config/connection');
 
-const { Canine, Volunteer, Kennel } = require('../../models');
+const { Canine, Volunteer, Kennel, Demeanor } = require('../../models');
 
-//get all dogs
+//get all canine
 router.get('/', (req, res) => {
     Canine.findAll({
-        attributes: ['c_id', 'd_name', 'c_demeanor', 'has_walked_am', 'has_walked_pm', 'has_potty_am', 'has_potty_pm', 'k_id']
+        include:[
+            { model: Volunteer,
+            attributes:['username']}
+            // {model:Kennel,
+            // attributes:['k_name']}
+        ]
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     })
-        .then(dbCanineData => {
-            console.log('router.get inside home-routes.js');
-            res.json(dbCanineData);
+    // Canine.findAll({
+    //     attributes: [
+    //         'c_id', 
+    //         'c_name', 
+    //         'c_demeanor', 
+    //         'has_walked_am', 
+    //         'has_walked_pm', 
+    //         'has_potty_am', 
+    //         'has_potty_pm', 
+    //         'k_id',
+    //     ],
+    //     include: [{
+    //         model: Volunteer,
+    //         attributes: ['username']
+    //     }]
+    // })
+    //     .then(dbCanineData => {
+    //         console.log('router.get inside home-routes.js');
+    //         res.json(dbCanineData);
 
-        })
-        .catch(err => {
-            console.log("Error in router.get in home-route.js");
-            console.log(err);
-            res.status(500).json(err);
-        });
+    //     })
+    //     .catch(err => {
+    //         console.log("Error in router.get in home-route.js");
+    //         console.log(err);
+    //         res.status(500).json(err);
+    //     });
 });
 
-//get dog by id
+//get canine by id
 router.get('/:c_id', (req, res) => {
     Canine.findOne({
         where: {
             c_id: req.params.c_id
         },
-        attributes: ['c_id', 'd_name', 'c_demeanor', 'has_walked_am', 'has_walked_pm', 'has_potty_am', 'has_potty_pm', 'k_id'],
+        attributes: ['c_id', 'c_name', 'c_demeanor', 'has_walked_am', 'has_walked_pm', 'has_potty_am', 'has_potty_pm', 'k_id'],
         include: [
             {
                 model: Volunteer,
@@ -74,5 +100,7 @@ router.get('/:c_id', (req, res) => {
         });
 
 });
+
+//delete a dog won't be actviated as volunteers don't have access to delete
 
 module.exports = router;

@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- try to get favicon to load doggy image -->
+    <!-- <link rel="shortcut icon" href="https://example.com/myicon.ico"> -->
     <title>Happy Tails</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
 </head>
 
 <body>
@@ -14,12 +17,14 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">Happy Tails</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <!-- <li><a href="dashboard.html">Dashboard</a></li> -->
-                <!-- <li><a href="login.html">Login</a></li>
-                <li><a href="login.html">Logout</a></li> -->
-                <li><button type="button" class="btn" id="dashboard-button">Dashboard</button></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="login.html">Logout</a></li>
+
+                <!-- Button layout -->
+                <!-- <li><button type="button" class="btn" id="dashboard-button">Dashboard</button></li>
                 <li><button type="button" class="btn" id="login-button">Login</button></li>
-                <li><button type="button" class="btn" id="logout-button">Logout</button></li>
+                <li><button type="button" class="btn" id="logout-button">Logout</button></li> -->
             </ul>
         </div>
     </nav>
@@ -32,9 +37,10 @@
                 <thead>
                     <tr>
                         <th>Doggy Name</th>
+                        <th>Kennel</th>
                         <th>Potty Break</th>
                         <th>Walk</th>
-                        <th>Doggy Difficulty</th>
+                        <th>Doggy Demeanor</th>
                         <th>&#128513 / &#128542 </th>
                     </tr>
                 </thead>
@@ -42,6 +48,7 @@
                 <tbody>
                     <tr>
                         <td>Louie</td>
+                        <td>1</td>
                         <td>Yes</td>
                         <td>No</td>
                         <td>Easy</td>
@@ -49,6 +56,7 @@
                     </tr>
                     <tr>
                         <td>Bella</td>
+                        <td>5</td>
                         <td>Yes</td>
                         <td>Yes</td>
                         <td>Easy</td>
@@ -56,16 +64,45 @@
                     </tr>
                     <tr>
                         <td>Baron</td>
+                        <td>11</td>
                         <td>No</td>
                         <td>No</td>
                         <td>Hard</td>
                         <td>&#128542 </td>
                     </tr>
+                    <tr>
+                        <td>Spot</td>
+                        <td>8</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Medium</td>
+                        <td>&#128542</td>
+                    </tr>
+                    <tr>
+                        <td>Nancy</td>
+                        <td>6</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Easy</td>
+                        <td>&#128542</td>
+                    </tr>
                 </tbody>
             </table>
 
         </div>
+        <div class="row" id="vol-message">
+            <p>Please select dogs that fit your experience level and record their completed activites using the
+                dashboard.</p>
+        </div>
     </main>
+
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2021 Copyright Happy Tails 🐶
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

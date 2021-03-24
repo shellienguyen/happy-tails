@@ -2,85 +2,105 @@ const router = require('express').Router();
 const withAuth = require('../../utils/auth')
 const sequelize = require('../../config/connection');
 
-const { Canine } = require('../../models');
+const { Canine, Volunteer, Kennel, Demeanor } = require('../../models');
 
-router.get( '/', ( req, res ) => {
+//get all canine
+router.get('/', (req, res) => {
     Canine.findAll({
-       attributes: [ 'c_id', 'c_name' ]
+        include:[
+            { model: Volunteer,
+            attributes:['username']}
+            // {model:Kennel,
+            // attributes:['k_name']}
+        ]
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     })
-    .then( dbCanineData => {
-       console.log('router.get inside home-routes.js');
-       res.json(dbCanineData);
+    // Canine.findAll({
+    //     attributes: [
+    //         'c_id', 
+    //         'c_name', 
+    //         'c_demeanor', 
+    //         'has_walked_am', 
+    //         'has_walked_pm', 
+    //         'has_potty_am', 
+    //         'has_potty_pm', 
+    //         'k_id',
+    //     ],
+    //     include: [{
+    //         model: Volunteer,
+    //         attributes: ['username']
+    //     }]
+    // })
+    //     .then(dbCanineData => {
+    //         console.log('router.get inside home-routes.js');
+    //         res.json(dbCanineData);
+
+    //     })
+    //     .catch(err => {
+    //         console.log("Error in router.get in home-route.js");
+    //         console.log(err);
+    //         res.status(500).json(err);
+    //     });
+});
+
+//get canine by id
+router.get('/:c_id', (req, res) => {
+    Canine.findOne({
+        where: {
+            c_id: req.params.c_id
+        },
+        attributes: ['c_id', 'c_name', 'c_demeanor', 'has_walked_am', 'has_walked_pm', 'has_potty_am', 'has_potty_pm', 'k_id'],
+        include: [
+            {
+                model: Volunteer,
+                attributes: ['username']
+            },
+            {
+                model: Kennel,
+                attributes: ['k_id', 'k_name']
+            }
+
+        ]
+    }).then(dbCanineData => {
+        res.json(dbCanineData);
+
     })
-    .catch( err => {
-       console.log( "Error in router.get in home-route.js" );
-       console.log( err );
-       res.status( 500 ).json( err );
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     });
- });
- 
-/* 
-router.get('/:id', (req, res) => {
-    Post.findOne({
-    })
-        .then();
-});
+})
 
-router.post('/', (req, res) => {
-    Post.create({
-        title: req.body.title,
-        post_body: req.body.post_body,
-        user_id: req.session.user_id
-    })
-        .then(dbPostData => res.json(dbPostData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
-
-router.put('/:id', (req, res) => {
-    Post.update(
+//update dog
+router.get('/:c_id', (req, res) => {
+    Canine.update(
         {
-            title: req.body.title,
-            post_body: req.body.post_body  
+            has_walked_am: req.body.has_walked_am,
+            has_walked_pm: req.body.has_walked_pm,
+            has_potty_am: req.body.has_potty_am,
+            has_potty_pm: req.body.has_potty_pm
         },
         {
             where: {
-                id: req.params.id
+                c_id: req.params.c_id
             }
-        }
-    )
-        .then(dbPostData => {
-            if (!dbPostData) {
-                res.status(404).json({ message: 'No post found with this id' });
-                return;
-            }
-            res.json(dbPostData);
+
+        })
+        .then(dbCanineData => {
+            res.json(dbCanineData);
+
         })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
+
 });
-router.delete('/:id', withAuth, (req, res) => {
-    Post.destroy({
-        where: {
-            id: req.params.id
-        }
-    })
-        .then(dbPostData => {
-            if (!dbPostData) {
-                res.status(404).json({ message: 'No post found with this id' });
-                return;
-            }
-            res.json(dbPostData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
-*/
+
+//delete a dog won't be actviated as volunteers don't have access to delete
 
 module.exports = router;

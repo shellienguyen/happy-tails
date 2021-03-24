@@ -2,85 +2,77 @@ const router = require('express').Router();
 const withAuth = require('../../utils/auth')
 const sequelize = require('../../config/connection');
 
-const { Canine } = require('../../models');
+const { Canine, Volunteer, Kennel } = require('../../models');
 
-router.get( '/', ( req, res ) => {
+//get all dogs
+router.get('/', (req, res) => {
     Canine.findAll({
-       attributes: [ 'c_id', 'c_name' ]
+        attributes: ['c_id', 'd_name', 'c_demeanor', 'has_walked_am', 'has_walked_pm', 'has_potty_am', 'has_potty_pm', 'k_id']
     })
-    .then( dbCanineData => {
-       console.log('router.get inside home-routes.js');
-       res.json(dbCanineData);
-    })
-    .catch( err => {
-       console.log( "Error in router.get in home-route.js" );
-       console.log( err );
-       res.status( 500 ).json( err );
-    });
- });
- 
-/* 
-router.get('/:id', (req, res) => {
-    Post.findOne({
-    })
-        .then();
-});
-//create dog functionality will be added to route, however volunteers won't have ability to create dog in this first pass
-router.post('/', (req, res) => {
-    Post.create({
-        dogName: req.body.title,
-        post_body: req.body.post_body,
-        user_id: req.session.user_id
-    })
-        .then(dbPostData => res.json(dbPostData))
+        .then(dbCanineData => {
+            console.log('router.get inside home-routes.js');
+            res.json(dbCanineData);
+
+        })
         .catch(err => {
+            console.log("Error in router.get in home-route.js");
             console.log(err);
             res.status(500).json(err);
         });
 });
 
-router.put('/:id', (req, res) => {
-    Post.update(
+//get dog by id
+router.get('/:c_id', (req, res) => {
+    Canine.findOne({
+        where: {
+            c_id: req.params.c_id
+        },
+        attributes: ['c_id', 'd_name', 'c_demeanor', 'has_walked_am', 'has_walked_pm', 'has_potty_am', 'has_potty_pm', 'k_id'],
+        include: [
+            {
+                model: Volunteer,
+                attributes: ['username']
+            },
+            {
+                model: Kennel,
+                attributes: ['k_id', 'k_name']
+            }
+
+        ]
+    }).then(dbCanineData => {
+        res.json(dbCanineData);
+
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+
+//update dog
+router.get('/:c_id', (req, res) => {
+    Canine.update(
         {
-            title: req.body.title,
-            post_body: req.body.post_body  
+            has_walked_am: req.body.has_walked_am,
+            has_walked_pm: req.body.has_walked_pm,
+            has_potty_am: req.body.has_potty_am,
+            has_potty_pm: req.body.has_potty_pm
         },
         {
             where: {
-                id: req.params.id
+                c_id: req.params.c_id
             }
-        }
-    )
-        .then(dbPostData => {
-            if (!dbPostData) {
-                res.status(404).json({ message: 'No post found with this id' });
-                return;
-            }
-            res.json(dbPostData);
+
+        })
+        .then(dbCanineData => {
+            res.json(dbCanineData);
+
         })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
+
 });
-router.delete('/:id', withAuth, (req, res) => {
-    Post.destroy({
-        where: {
-            id: req.params.id
-        }
-    })
-        .then(dbPostData => {
-            if (!dbPostData) {
-                res.status(404).json({ message: 'No post found with this id' });
-                return;
-            }
-            res.json(dbPostData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
-*/
 
 module.exports = router;

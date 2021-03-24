@@ -2,22 +2,12 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-<<<<<<< HEAD
-// create our Volunteer model
-class Volunteer extends Model {
-    // set up method to run on instance data (per user) to check password
-    checkPassword(loginPw) {
-       return bcrypt.compareSync(loginPw, this.password);
-     }
-}
-=======
 class Volunteer extends Model {
    // set up method to run on instance data (per user) to check password
    checkPassword(loginPw) {
       return bcrypt.compareSync(loginPw, this.password);
    }
 };
->>>>>>> d5dcef65e5b5436dbc42a100e48dd572080647e4
 
 Volunteer.init(
    {
@@ -66,17 +56,10 @@ Volunteer.init(
       // don't pluralize name of database table
       freezeTableName: true,
         // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
-<<<<<<< HEAD
-        underscored: true,
-        // make it so our model name stays lowercase in the database
-        modelName: 'volunteer'
-    }
-=======
       underscored: true,
       // make it so our model name stays lowercase in the database
       modelName: 'volunteer'
    }
->>>>>>> d5dcef65e5b5436dbc42a100e48dd572080647e4
 );
 
 module.exports = Volunteer;

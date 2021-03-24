@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Tails Dashboard</title>
+    <title>Happy Tails</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="../public/stylesheets/style.css">
 </head>
@@ -22,6 +22,116 @@
         </div>
     </nav>
 
+    <main class="container">
+        <div class="row s2">
+            <p>Please select difficulty based on your experience level:</p>
+            <form class="inline" action="#">
+                <div class="col s3">
+                    <label>
+                        <input type="checkbox" class="filled-in" checked="checked" />
+                        <span>Easy</span>
+                    </label>
+                </div>
+                <div class="col s3">
+                    <label>
+                        <input type="checkbox" class="filled-in" checked="checked" />
+                        <span>Moderate</span>
+                    </label>
+                </div>
+                <div class="col s3">
+                    <label>
+                        <input type="checkbox" class="filled-in" checked="checked" />
+                        <span>Hard</span>
+                    </label>
+                </div>
+                <div class="col s3">
+                    <label>
+                        <input type="checkbox" class="filled-in" checked="checked" />
+                        <span>Select All</span>
+                    </label>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="row s2">
+            <div class="col s12 center">
+                <!-- Dropdown Trigger -->
+                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Select an option to filter doggies ⬇</a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="#!">See dogs that need walks</a></li>
+                    <li><a href="#!">See dogs that need a potty break</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a href="#!">See dogs who have walked</a></li>
+                    <li><a href="#!">See dogs who have gone potty</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a href="#!"><i class="material-icons">view_module</i>See all happy tails</a></li>
+                    <li><a href="#!"><i class="material-icons">cloud</i>See all sad tails</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row s8">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Doggy Name</th>
+                        <th>Kennel</th>
+                        <th>Potty Break</th>
+                        <th>Walk</th>
+                        <th>Doggy Demeanor</th>
+                        <th>&#128513 / &#128542 </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Louie</td>
+                        <td>1</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Easy</td>
+                        <td>&#128542</td>
+                    </tr>
+                    <tr>
+                        <td>Bella</td>
+                        <td>5</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Easy</td>
+                        <td>&#128513</td>
+                    </tr>
+                    <tr>
+                        <td>Baron</td>
+                        <td>11</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Hard</td>
+                        <td>&#128542 </td>
+                    </tr>
+                    <tr>
+                        <td>Spot</td>
+                        <td>8</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Medium</td>
+                        <td>&#128542</td>
+                    </tr>
+                    <tr>
+                        <td>Nancy</td>
+                        <td>6</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Easy</td>
+                        <td>&#128542</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
     <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
@@ -34,3 +144,4 @@
 </html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="../public/javascript/dashboard.js"></script>

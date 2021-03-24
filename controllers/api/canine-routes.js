@@ -2,13 +2,12 @@ const router = require('express').Router();
 const withAuth = require('../../utils/auth')
 const sequelize = require('../../config/connection');
 
-const { Canine, User, Comment } = require('../../models');
-
+// const { Canine, Volunteer, Demeaner} = require('../../models');
+const { Canine } = require('../../models');
 // get all users
 router.get('/', (req, res) => {
     console.log('======================');
-    Post.findAll({
-    })
+    Canine.findAll({})
         .then();
 });
 
@@ -17,10 +16,10 @@ router.get('/:id', (req, res) => {
     })
         .then();
 });
-
+//create dog functionality will be added to route, however volunteers won't have ability to create dog in this first pass
 router.post('/', (req, res) => {
     Post.create({
-        title: req.body.title,
+        dogName: req.body.title,
         post_body: req.body.post_body,
         user_id: req.session.user_id
     })

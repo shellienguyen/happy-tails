@@ -3,8 +3,8 @@ const sequelize = require('../config/connection');
 //user credentials encryption
 const bcrypt = require('bcrypt');
 
-// create our User model
-class User extends Model {
+// create our Volunteer model
+class Volunteer extends Model {
     // set up method to run on instance data (per user) to check password
     checkPassword(loginPw) {
        return bcrypt.compareSync(loginPw, this.password);
@@ -64,8 +64,8 @@ User.init(
         // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
         underscored: true,
         // make it so our model name stays lowercase in the database
-        modelName: 'user'
+        modelName: 'volunteer'
     }
 );
 
-module.exports = User;
+module.exports = Volunteer;

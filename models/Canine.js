@@ -13,31 +13,37 @@ Canine.init(
          primaryKey: true,
          autoIncrement: true
       },
-      d_name: {
+      c_name: {
          type: DataTypes.STRING,
          allowNull: false
       },
       c_demeanor: {
-         type: DataTypes.INTEGER
+         type: DataTypes.INTEGER,
+         allowNull: true
       },
       has_walked_am: {
          type: DataTypes.INTEGER,
+         allowNull: true,
          references: { model: 'volunteer', key: 'v_id' }
       },
       has_walked_pm: {
          type: DataTypes.INTEGER,
+         allowNull: true,
          references: { model: 'volunteer', key: 'v_id' }
       },
       has_potty_am: {
          type: DataTypes.INTEGER,
+         allowNull: true,
          references: { model: 'volunteer', key: 'v_id' }
       },
       has_potty_pm: {
          type: DataTypes.INTEGER,
+         allowNull: true,
          references: { model: 'volunteer', key: 'v_id' }
       },
       k_id: {
-         type: DataTypes.INTEGER
+         type: DataTypes.INTEGER,
+         allowNull: true
       }
    },
    {

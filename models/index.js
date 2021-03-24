@@ -10,7 +10,6 @@ Volunteer.hasMany(Canine, {foreignKey: 'has_potty_pm'});
 
 Demeanor.belongsTo(Canine, {foreignKey: 'c_demeanor'});
 
-Kennel.belongsTo(Canine, {foreignKey: 'k_id'});
-
+//Kennel.belongsTo(Canine, {foreignKey: 'k_id'});
 
 module.exports = { Volunteer, Canine, Kennel, Demeanor };

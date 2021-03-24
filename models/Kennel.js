@@ -1,38 +1,29 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Kennel extends Model {}
+// Create our kennel model
+class Kennel extends Model { }
 
+// Create fields/columns for kennel model
 Kennel.init(
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
+   {
+      k_id: {
+         type: DataTypes.INTEGER,
+         allowNull: false,
+         primaryKey: true,
+         autoIncrement: true
       },
-      user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id'
-        }
-      },
-      dog_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'canine',
-          key: 'id'
-        }
+      k_name: {
+         type: DataTypes.STRING,
+         allowNull: false
       }
-    },
-    {
+   },
+   {
       sequelize,
-      timestamps: false,
       freezeTableName: true,
       underscored: true,
       modelName: 'kennel'
-    }
-  );
-  
-  module.exports = Kennel;
-  
+   }
+);
+
+module.exports = Kennel;

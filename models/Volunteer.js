@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-//user credentials encryption
 const bcrypt = require('bcrypt');
 
+<<<<<<< HEAD
 // create our Volunteer model
 class Volunteer extends Model {
     // set up method to run on instance data (per user) to check password
@@ -10,62 +10,73 @@ class Volunteer extends Model {
        return bcrypt.compareSync(loginPw, this.password);
      }
 }
+=======
+class Volunteer extends Model {
+   // set up method to run on instance data (per user) to check password
+   checkPassword(loginPw) {
+      return bcrypt.compareSync(loginPw, this.password);
+   }
+};
+>>>>>>> d5dcef65e5b5436dbc42a100e48dd572080647e4
 
-//define table coluns and configuration
-User.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        // define a username column
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true //usernames cant be duplicates
-        },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                isEmail: true
-            },
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [5]
-            }
-        }
-    },
-    {
-        hooks: {
-            // set up beforeCreate lifecycle "hook" functionality
-            async beforeCreate(newUserData) {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
-            },
-            // set up beforeUpdate lifecycle "hook" functionality
-            async beforeUpdate(updatedUserData) {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData;
-            }
+Volunteer.init(
+   {
+      v_id: {
+         type: DataTypes.INTEGER,
+         allowNull: false,
+         primaryKey: true,
+         autoIncrement: true
+      },
+      username: {
+         type: DataTypes.STRING,
+         allowNull: false,
+         unique: true
+      },
+      password: {
+         type: DataTypes.STRING,
+         allowNull: false,
+         validate: {len: [6]}
+      },
+      v_fname: {
+         type: DataTypes.STRING,
+         allowNull: false
+      },
+      v_lname: {
+         type: DataTypes.STRING,
+         allowNull: false,
+      }
+   },
+   {
+      hooks: {
+         // set up beforeCreate lifecycle "hook" functionality
+         async beforeCreate(newUserData) {
+            newUserData.password = await bcrypt.hash(newUserData.password, 10);
+            return newUserData;
+          },
+          // set up beforeUpdate lifecycle "hook" functionality
+          async beforeUpdate(updatedUserData) {
+             updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+             return updatedUserData;
+          }
 
-        },
-        sequelize,
-        // don't automatically create createdAt/updatedAt timestamp fields
-        timestamps: false,
-        // don't pluralize name of database table
-        freezeTableName: true,
+      },
+      sequelize,
+      // don't automatically create createdAt/updatedAt timestamp fields
+      timestamps: false,
+      // don't pluralize name of database table
+      freezeTableName: true,
         // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
+<<<<<<< HEAD
         underscored: true,
         // make it so our model name stays lowercase in the database
         modelName: 'volunteer'
     }
+=======
+      underscored: true,
+      // make it so our model name stays lowercase in the database
+      modelName: 'volunteer'
+   }
+>>>>>>> d5dcef65e5b5436dbc42a100e48dd572080647e4
 );
 
 module.exports = Volunteer;

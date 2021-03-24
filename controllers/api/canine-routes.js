@@ -2,16 +2,24 @@ const router = require('express').Router();
 const withAuth = require('../../utils/auth')
 const sequelize = require('../../config/connection');
 
-const { Canine, User, Comment } = require('../../models');
+const { Canine } = require('../../models');
 
-// get all users
-router.get('/', (req, res) => {
-    console.log('======================');
-    Post.findAll({
+router.get( '/', ( req, res ) => {
+    Canine.findAll({
+       attributes: [ 'c_id', 'c_name' ]
     })
-        .then();
-});
-
+    .then( dbCanineData => {
+       console.log('router.get inside home-routes.js');
+       res.json(dbCanineData);
+    })
+    .catch( err => {
+       console.log( "Error in router.get in home-route.js" );
+       console.log( err );
+       res.status( 500 ).json( err );
+    });
+ });
+ 
+/* 
 router.get('/:id', (req, res) => {
     Post.findOne({
     })
@@ -73,4 +81,6 @@ router.delete('/:id', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
+*/
+
 module.exports = router;

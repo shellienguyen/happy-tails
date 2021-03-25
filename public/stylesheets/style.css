@@ -42,6 +42,10 @@ main {
   font-weight: bold;
 }
 
+nav, .brand-logo {
+  padding-left: 20px;
+}
+
 /* #single-dog-container {
   border:dimgray;
   border-style: outset;

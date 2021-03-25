@@ -16,6 +16,6 @@ module.exports = {
   colorCode() {
     // check the value for the Doggy Demeanor and compare in if statement
     // if DD = Easy then add class .easy, if DD = Moderate add class .moderate.. etc.
-
+    
   }
 };

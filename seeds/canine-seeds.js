@@ -27,7 +27,7 @@ const CanineData = [
    },
    {
       c_name: 'Pandora',
-      c_demeanor: 4,
+      c_demeanor: 3,
       has_walked_am: 5,
       k_id: 5
    },
@@ -47,7 +47,7 @@ const CanineData = [
    },
    {
       c_name: 'Princess',
-      c_demeanor: 4,
+      c_demeanor: 2,
       has_potty_am: 8,
       k_id: 8
    },
@@ -79,7 +79,7 @@ const CanineData = [
    },
    {
       c_name: 'Pepper',
-      c_demeanor: 4,
+      c_demeanor: 3,
       k_id: 13
    },
    {
@@ -120,7 +120,7 @@ const CanineData = [
    },
    {
       c_name: 'Chewy',
-      c_demeanor: 10,
+      c_demeanor: 1,
       k_id: 20
    },
    {
@@ -130,7 +130,7 @@ const CanineData = [
    },
    {
       c_name: 'Brownie',
-      c_demeanor: 4,
+      c_demeanor: 3,
       k_id: 22
    },
    {

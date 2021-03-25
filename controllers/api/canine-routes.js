@@ -7,11 +7,21 @@ const { Canine, Volunteer, Kennel, Demeanor } = require('../../models');
 //get all canine
 router.get('/', (req, res) => {
     Canine.findAll({
+        attributes: [
+                    'c_id', 
+                    'c_name', 
+                    'c_demeanor', 
+                    'has_walked_am', 
+                    'has_walked_pm', 
+                    'has_potty_am', 
+                    'has_potty_pm', 
+                    'k_id',
+                ],
         include:[
             { model: Volunteer,
-            attributes:['username']}
-            // {model:Kennel,
-            // attributes:['k_name']}
+            attributes:['username']},
+            {model:Kennel,
+            attributes:['k_name']}
         ]
     }).then(data => {
         res.json(data);

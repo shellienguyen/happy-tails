@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    /* border: red;
+    border-style: dashed; */
   }
   
 body, html {
@@ -39,3 +41,9 @@ main {
   color: rgb(138, 28, 28);
   font-weight: bold;
 }
+
+/* #single-dog-container {
+  border:dimgray;
+  border-style: outset;
+  border-width: 4px;
+} */

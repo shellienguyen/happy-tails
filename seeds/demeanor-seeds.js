@@ -9,9 +9,6 @@ const demeanorData = [
    },
    {
       d_desc: 'Difficult'
-   },
-   {
-      d_desc: 'Highly Challenging'
    }
 ];
 

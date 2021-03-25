@@ -21,7 +21,11 @@ router.get('/', (req, res) => {
             { model: Volunteer,
             attributes:['username']},
             {model:Kennel,
-            attributes:['k_name']}
+            attributes:['k_name']},
+            {
+                model: Demeanor,
+                attributes:['d_desc']
+            }
         ]
     }).then(data => {
         res.json(data);
@@ -38,15 +42,19 @@ router.get('/:c_id', (req, res) => {
             c_id: req.params.c_id
         },
         attributes: ['c_id', 'c_name', 'c_demeanor', 'has_walked_am', 'has_walked_pm', 'has_potty_am', 'has_potty_pm', 'k_id'],
-        include: [
+        includes: [
             {
                 model: Volunteer,
                 attributes: ['username']
             },
             {
                 model: Kennel,
-                attributes: ['k_id', 'k_name']
+                attributes: [ 'k_name']
             }
+            // {
+            //     model: Demeanor,
+            //     attributes:['d_desc']
+            // }
 
         ]
     }).then(dbCanineData => {

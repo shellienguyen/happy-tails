@@ -5,6 +5,8 @@ const Demeanor = require('./Demeanor');
 //create associations
 Canine.belongsTo(Volunteer, {foreignKey:'has_walked_am'});
 Canine.belongsTo(Volunteer, {foreignKey:'has_walked_pm'});
+Canine.belongsTo(Volunteer, {foreignKey:'has_potty_am'});
+Canine.belongsTo(Volunteer, {foreignKey:'has_potty_pm'});
 // Volunteer.hasMany(Canine, {foreignKey: 'has_walked_am'});
 // Volunteer.hasMany(Canine, {foreignKey: 'has_walked_pm'});
 // Volunteer.hasMany(Canine, {foreignKey: 'has_potty_am'});

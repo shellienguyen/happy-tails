@@ -50,11 +50,11 @@ router.get('/:c_id', (req, res) => {
             {
                 model: Kennel,
                 attributes: [ 'k_name']
+            },
+            {
+                model: Demeanor,
+                attributes:['d_desc']
             }
-            // {
-            //     model: Demeanor,
-            //     attributes:['d_desc']
-            // }
 
         ]
     }).then(dbCanineData => {

@@ -24,3 +24,18 @@ main {
 .align-center {
     justify-content: center;
   }
+
+.easy {
+  color: rgb(51, 138, 33);
+  font-weight: bold;
+}
+
+.moderate {
+  color: rgb(171, 180, 35);
+  font-weight: bold;
+}
+
+.hard {
+  color: rgb(138, 28, 28);
+  font-weight: bold;
+}

@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
             model: Kennel,
                     attributes: ['k_name']
             }
-    ], 
+    ] 
       
     })
     .then((dbCanineData) => {
@@ -38,73 +38,83 @@ router.get("/", (req, res) => {
 
 
 // get single dog  
-// router.get('/:c_id', (req, res) => {
-//     Canine.findOne({
-//         where: {
-//             id: req.params.id
-//         },
-//         attributes: [
-//                     'c_id', 
-//                     'c_name', 
-//                     'c_demeanor', 
-//                     'has_walked_am', 
-//                     'has_walked_pm', 
-//                     'has_potty_am', 
-//                     'has_potty_pm', 
-//                     'k_id',
-//         ],
-//         include: [
-//             {
-//                 model: Volunteer,
-//                 attributes: ['c_id', 'c_name', 'c_demeanor', 'has_walked_am', 'has_walked_pm', 'has_potty_am', 'has_potty_pm', 'k_id'],
-//                 include: {
-//                     model: Kennel,
-//                     attributes: ['username']
-//                 }
-//             },
-//             {
-//                 model: Kennel,
-//                 attributes: ['username']
-//             }
-//         ]
-//     })
-//     .then(dbCanineData => {
-//         if (!dbCanineData) {
-//             res.status(404).json({ message: 'No Canine found with that id' });
-//             return;
-//         }
+router.get('/:c_id', (req, res) => {
+    Canine.findOne({
+       where: {
+        c_id: req.params.c_id
+},
+attributes: [
+            'c_id', 
+            'c_name', 
+            'c_demeanor', 
+            'has_walked_am', 
+            'has_walked_pm', 
+            'has_potty_am', 
+            'has_potty_pm', 
+            'k_id',
+],
+include: [
+    {
+        model: Volunteer,
+        attributes: ['c_id', 'c_name', 'c_demeanor', 'has_walked_am', 'has_walked_pm', 'has_potty_am', 'has_potty_pm', 'k_id'],
+        include: {
+            model: Volunteer,
+            attributes: ['username']
+        }
+    },
+    {
+        model: Kennel,
+        attributes: ['k_name']
+    },
+    {
+        model: Demeanor,
+        attributes: ['d_desc']
+    }
+] 
+    })
+    .then(dbCanineData => {
+        if (!dbCanineData) {
+            res.status(404).json({ message: 'No Canine found with that id' });
+            return;
+        }
 
-//         const canine = dbCanineData.get({ plain: true });
+        const canine = dbCanineData.get({ plain: true });
 
-//         res.render('single-canine', {
-//             canine,
-//             loggedIn: req.session.loggedIn
-//         });
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     });
-// });
+        res.render('single-canine', {canine,
+            loggedIn: req.session.loggedIn
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
-// router.get('/login', (req, res) => {
-//     if (req.session.loggedIn) {
-//       res.redirect('/dashboard');
-//       return;
-//     }
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/dashboard');
+      return;
+    }
   
-//     res.render('login');
-//   });
+    res.render('login');
+  });
   
-//   router.get('/signup', (req, res) => {
-//       if (req.session.loggedIn) {
-//         res.redirect('/');
-//         return;
-//       }
+  router.get('/signup', (req, res) => {
+      if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+      }
     
-//       res.render('sign-up');
-//     });
+      res.render('sign-up');
+    });
 
 
 
 module.exports = router;
+
+
+
+
+
+
+

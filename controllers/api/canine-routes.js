@@ -11,17 +11,15 @@ router.get('/', (req, res) => {
                     'c_id', 
                     'c_name', 
                     'c_demeanor', 
-                    // [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_am)'), 'has_walked_am'],
-                     
-                    'has_walked_pm', 
-                    'has_potty_am', 
-                    'has_potty_pm', 
+                    [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_am)'), 'has_walked_am'],
+                    [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_pm)'), 'has_walked_pm'],
+                    [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_am)'), 'has_potty_am'],
+                    [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_pm)'), 'has_potty_pm'],
                     'k_id'
                 ],
         include:[
             { model: Volunteer,
-            attributes:['v_id','username'],
-            through: {attributes: []},
+            attributes:['v_id','username']
             },
             {model:Kennel,
             attributes:['k_name']},
@@ -44,7 +42,15 @@ router.get('/:c_id', (req, res) => {
         where: {
             c_id: req.params.c_id
         },
-        attributes: ['c_id', 'c_name', 'c_demeanor', 'has_walked_am', 'has_walked_pm', 'has_potty_am', 'has_potty_pm', 'k_id'],
+        attributes: [
+            'c_id', 
+        'c_name', 
+        'c_demeanor', 
+        [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_am)'), 'has_walked_am'],
+        [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_pm)'), 'has_walked_pm'],
+        [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_am)'), 'has_potty_am'],
+        [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_pm)'), 'has_potty_pm'],
+        'k_id'],
         include: [
             {
                 model: Volunteer,

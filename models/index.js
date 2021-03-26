@@ -3,19 +3,15 @@ const Canine = require('./Canine');
 const Kennel = require('./Kennel');
 const Demeanor = require('./Demeanor');
 //create associations
-Canine.belongsToMany(Volunteer, {through:'has_walked_am'});
-Canine.belongsToMany(Volunteer, {through:'has_walked_pm'});
-Canine.belongsToMany(Volunteer, {through:'has_potty_am'});
-Canine.belongsToMany(Volunteer, {through:'has_potty_pm'});
+Canine.belongsTo(Volunteer, {foreignKey: 'has_walked_am'});
+Canine.belongsTo(Volunteer, {foreignKey: 'has_walked_pm'});
+Canine.belongsTo(Volunteer, {foreignKey: 'has_potty_am'});
+Canine.belongsTo(Volunteer, {foreignKey: 'has_potty_pm'});
 
-// Volunteer.belongsToMany(Canine, {through: 'has_walked_am'});
-// Volunteer.belongsToMany(Canine, {through: 'has_walked_pm'});
-// Volunteer.belongsToMany(Canine, {through: 'has_potty_am'});
-// Volunteer.belongsToMany(Canine, {through: 'has_potty_pm'});
-Volunteer.belongsToMany(Canine, {through: 'v_id'});
-Volunteer.belongsToMany(Canine, {through: 'v_id'});
-Volunteer.belongsToMany(Canine, {through: 'v_id'});
-Volunteer.belongsToMany(Canine, {through: 'v_id'});
+// Volunteer.hasMany(Canine, {foreignKey: 'has_walked_am'});
+// Volunteer.hasMany(Canine, {foreignKey: 'has_walked_pm'});
+// Volunteer.hasMany(Canine, {foreignKey: 'has_potty_am'});
+// Volunteer.hasMany(Canine, {foreignKey: 'has_potty_pm'});
 
 // Demeanor.hasMany(Canine, {foreignKey: 'd_id'});
 Canine.belongsTo(Kennel, {foreignKey: 'k_id'});

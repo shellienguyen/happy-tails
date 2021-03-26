@@ -12,12 +12,10 @@ Canine.belongsTo(Volunteer, {foreignKey:'has_potty_pm'});
 // Volunteer.hasMany(Canine, {foreignKey: 'has_potty_am'});
 // Volunteer.hasMany(Canine, {foreignKey: 'has_potty_pm'});
 
-// Demeanor.belongsTo(Canine, {foreignKey: 'c_demeanor'});
+// Demeanor.hasMany(Canine, {foreignKey: 'd_id'});
 Canine.belongsTo(Kennel, {foreignKey: 'k_id'});
 Canine.belongsTo(Demeanor, {foreignKey: 'c_demeanor'});
-
 // Kennel.belongsTo(Canine, {foreignKey: 'k_id'});
-Canine.belongsTo(Kennel, {foreignKey: 'k_id'});
-
+Kennel.hasMany(Canine, {foreignKey: 'k_id'});
 
 module.exports = { Volunteer, Canine, Kennel, Demeanor };

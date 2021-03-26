@@ -16,6 +16,7 @@ Demeanor.init(
       d_desc: {
          type: DataTypes.STRING,
          allowNull: false
+         
       }
    },
    {

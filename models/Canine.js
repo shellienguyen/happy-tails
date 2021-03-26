@@ -20,8 +20,7 @@ Canine.init(
       c_demeanor: {
          type: DataTypes.INTEGER,
          allowNull: true,
-         references: {model: 'demeanor', key: 'd_id'}
-
+         references: { model: 'demeanor', key: 'd_id'}
       },
       has_walked_am: {
          type: DataTypes.INTEGER,
@@ -46,8 +45,7 @@ Canine.init(
       k_id: {
          type: DataTypes.INTEGER,
          allowNull: true,
-         references: { model: 'kennel', key: 'k_id' }
-
+         references: { model: 'kennel', key: 'k_id'}
       }
    },
    {

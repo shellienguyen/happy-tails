@@ -35,8 +35,8 @@ router.get("/", (req, res) => {
     })
     .then((dbCanineData) => {
         const canine = dbCanineData.map((canine) => canine.get({ plain: true }));
-        // res.render("dashboard", { canine });
-        res.json(dbCanineData);
+        res.render("homepage", { canine });
+        // res.json(dbCanineData);
       })
       .catch((err) => {
         res.status(500).json(err);

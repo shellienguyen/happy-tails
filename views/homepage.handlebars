@@ -1,2 +1,19 @@
-
-
+<div class="row" id="homepage-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Doggy Name</th>
+                <th>Kennel</th>
+                <th>Potty Break</th>
+                <th>Walk</th>
+                <th>Doggy Demeanor</th>
+                <th>&#128513 / &#128542 </th>
+            </tr>
+            <tbody class="dog-list">
+                {{#each canine}}
+                <li> {{c_name}} </li>
+                {{/each}}
+            </tbody>
+        </thead>
+    </table>
+</div>

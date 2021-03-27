@@ -13,6 +13,14 @@ module.exports = {
     return word;
   },
 
+  shift_change: () => {
+    let currentHour = moment().hour();
+
+    if (currentHour >= 0 && currentHour <= 11) {
+        return true;
+    }
+    return false;
+  }
   // colorCode(demeanor) {
   //   // check the value for the Doggy Demeanor and compare in if statement
   //   // if DD = Easy then add class .easy, if DD = Moderate add class .moderate.. etc.

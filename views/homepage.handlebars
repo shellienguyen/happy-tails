@@ -1,18 +1,36 @@
-<div class="row" id="homepage-table">
-    <table>
-        <thead>
-            <tr>
-                <th>Doggy Name</th>
-                <th>Kennel</th>
-                <th>AM Potty / AM Walk</th>
-                <th>PM Potty / PM Walk</th>
-                <th>Doggy Demeanor</th>
-                <th>&#128513 / &#128542 </th>
-            </tr>
-        </thead>
+ <div class="row s8">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Doggy Name</th>
+                        <th>AM Potty Break</th>
+                        <th>AM Walk</th>
+                        <th>Doggy Demeanor</th>
+                        <th>Kennel</th>
+                    </tr>
+                </thead>
         <tbody>
                 {{#each canine}}
-                {{>dog-info}}
+                {{>dog-info-am}}
+                {{/each}}
+
+        </tbody>
+            </tr>
+        </tbody>
+    </table>
+         <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Doggy Name</th>
+                        <th>PM Potty Break</th>
+                        <th>PM Walk</th>
+                        <th>Doggy Demeanor</th>
+                        <th>Kennel</th>
+                    </tr>
+                </thead>
+        <tbody>
+                {{#each canine}}
+                {{>dog-info-pm}}
                 {{/each}}
 
         </tbody>

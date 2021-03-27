@@ -60,18 +60,21 @@ router.post('/', (req, res) => {
 //login end point for volunteer
 router.post('/login', (req,res) => {
     Volunteer.findOne({
-        where: {
-            username: req.body.username
-        }
-    }).then(volunteerData => {
+        where: { username: req.body.username }
+    })
+    .then(volunteerData => {
         if(!volunteerData) {
             res.status(400).json({message: 'That username does not exist!'});
             return;
-        } const validPassword = volunteerData.checkPassword(req.body.password);
+        } ;
+        
+        const validPassword = volunteerData.checkPassword(req.body.password);
+        
         if(!validPassword){
             res.status(400).json({message: 'Incorrect password!'});
             return;
-        }
+        };
+
         req.session.save(()=>{
             req.session.v_id = volunteerData.v_id;
             req.session.username = volunteerData.username;

@@ -44,7 +44,7 @@ router.get("/", (req, res) => {
 });
 
 // get single dog  
-router.get('/:c_id', (req, res) => {
+router.get('/id/:c_id', (req, res) => {
     Canine.findOne({
         where: {
             c_id: req.params.c_id

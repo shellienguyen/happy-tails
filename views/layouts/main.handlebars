@@ -5,41 +5,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- try to get favicon to load doggy image -->
-    <!-- <link rel="shortcut icon" href="https://example.com/myicon.ico"> -->
     <title>Happy Tails</title>
+    <link rel="shortcut icon" type="image/png" href="/images/heart-paw-favicon.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Happy Tails</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                {{#if loggedIn}}
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="logout.html">Logout</a></li>
-                {{else}}
-                <li><a href="login.html">Login</a></li>
-                {{/if}}
-            </ul>
-        </div>
-    </nav>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Happy Tails</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    {{#if loggedIn}}
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+                    {{else}}
+                    <li><a href="login.html">Login</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
     <main class="container">
-      {{{ body }}}
+        {{{ body }}}
     </main>
     <footer class="page-footer">
-        <div class="footer-copyright">
-            <div class="container">
-                © 2021 Copyright Happy Tails 🐶
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <p class="grey-text center text-lighten-4">Thank you for your love and kindness! 💗</p>
+                    <p class="center">© 2021 Copyright Happy Tails 🐶</p>
+                </div>
             </div>
         </div>
     </footer>
-  </div>
-  {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
-  {{/if}}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 
 </body>
 

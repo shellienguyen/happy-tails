@@ -1,49 +1,9 @@
-
 <h3 class="flow-text">Hello! Here are your daily doggy activities:</h3>
-<br>
-<h4 class="flow-text">AM Shift</h4>
 
 <div class="row s8">
-    <table class="striped z-depth-2">
-        <thead>
-            <tr>
-                <th>Doggy Name</th>
-                <th>AM Potty Break</th>
-                <th>AM Walk</th>
-                <th>Doggy Demeanor</th>
-                <th>Kennel</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each canine}}
-            {{>dog-info-am}}
-            {{/each}}
 
-        </tbody>
-        </tr>
-        </tbody>
-    </table>
+    {{> am-table}}
 
-    <br>
-    <h4 class="flow-text">PM Shift</h4>
+    {{>pm-table}}
 
-    <table class="striped z-depth-2">
-        <thead>
-            <tr>
-                <th>Doggy Name</th>
-                <th>PM Potty Break</th>
-                <th>PM Walk</th>
-                <th>Doggy Demeanor</th>
-                <th>Kennel</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each canine}}
-            {{>dog-info-pm}}
-            {{/each}}
-
-        </tbody>
-        </tr>
-        </tbody>
-    </table>
 </div>

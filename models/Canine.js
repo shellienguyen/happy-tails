@@ -20,32 +20,38 @@ Canine.init(
       c_demeanor: {
          type: DataTypes.INTEGER,
          allowNull: true,
-         references: { model: 'demeanor', key: 'd_id'}
+         references: { model: 'demeanor', key: 'd_id'},
+         constraints: false
       },
       has_walked_am: {
          type: DataTypes.INTEGER,
          allowNull: true,
-         references: { model: 'volunteer', key: 'v_id' }
+         references: { model: 'volunteer', key: 'v_id' },
+         constraints: false
       },
       has_walked_pm: {
          type: DataTypes.INTEGER,
          allowNull: true,
-         references: { model: 'volunteer', key: 'v_id' }
+         references: { model: 'volunteer', key: 'v_id' },
+         constraints: false
       },
       has_potty_am: {
          type: DataTypes.INTEGER,
          allowNull: true,
-         references: { model: 'volunteer', key: 'v_id' }
+         references: { model: 'volunteer', key: 'v_id' },
+         constraints: false
       },
       has_potty_pm: {
          type: DataTypes.INTEGER,
          allowNull: true,
-         references: { model: 'volunteer', key: 'v_id' }
+         references: { model: 'volunteer', key: 'v_id' },
+         constraints: false
       },
       k_id: {
          type: DataTypes.INTEGER,
          allowNull: true,
-         references: { model: 'kennel', key: 'k_id'}
+         references: { model: 'kennel', key: 'k_id'},
+         constraints: false
       }
    },
    {

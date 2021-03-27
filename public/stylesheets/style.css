@@ -27,17 +27,17 @@ main {
     justify-content: center;
   }
 
-.easy {
+.Easy {
   color: rgb(51, 138, 33);
   font-weight: bold;
 }
 
-.moderate {
+.Moderate {
   color: rgb(171, 180, 35);
   font-weight: bold;
 }
 
-.hard {
+.Difficult {
   color: rgb(138, 28, 28);
   font-weight: bold;
 }

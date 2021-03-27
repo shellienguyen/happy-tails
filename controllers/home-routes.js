@@ -9,7 +9,7 @@ const { Canine, Volunteer, Kennel, Demeanor } = require('../models');
 router.get("/", (req, res) => {
     Canine.findAll({
         attributes: [
-            'c_id', 
+        'c_id', 
         'c_name', 
         'c_demeanor', 
         [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_am)'), 'has_walked_am'],

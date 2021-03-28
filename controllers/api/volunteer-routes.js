@@ -2,7 +2,9 @@ const router = require('express').Router();
 const withAuth = require('../../utils/auth')
 const sequelize = require('../../config/connection');
 const { Volunteer } = require('../../models');
+
 //endpoints for volunteer inclode /volunteer, /volunteer/id, /volunteer/login, /volunteer/logout
+
 //get all volunteers via /api/volunteer endpoint
 router.get('/', (req, res) => {
     Volunteer.findAll({

@@ -2,7 +2,9 @@ const router = require('express').Router();
 const withAuth = require('../../utils/auth')
 const sequelize = require('../../config/connection');
 const { Volunteer } = require('../../models');
+
 //endpoints for volunteer inclode /volunteer, /volunteer/id, /volunteer/login, /volunteer/logout
+
 //get all volunteers via /api/volunteer endpoint
 router.get('/', (req, res) => {
     Volunteer.findAll({
@@ -11,7 +13,8 @@ router.get('/', (req, res) => {
         }
     })
         .then(volunteerData => {
-            console.log('router.get inside home-routes.js');
+            console.log(volunteerData);
+            // volunteerData.loggedIn = req.session.loggedIn
             res.json(volunteerData)
         })   
         .catch(err => {
@@ -40,6 +43,7 @@ router.get('/:v_id', (req, res) => {
 
 //Create a new volunteer 
 router.post('/', (req, res) => {
+    console.log('create volunteer')
     Volunteer.create({
         v_fname: req.body.v_fname,
         v_lname: req.body.v_lname,
@@ -47,14 +51,17 @@ router.post('/', (req, res) => {
         password:req.body.password
     })
     .then(volunteerData => {
-        res.session.save(()=> {
+        req.session.save(()=> {
         req.session.v_id = volunteerData.v_id;
         req.session.username = volunteerData.username;
         req.session.loggedIn = true;
-        res.json(volunteerData);
-    });
-
-    });
+    }) 
+    res.json(volunteerData);
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json(err);
+    })
 });
 
 //login end point for volunteer
@@ -81,10 +88,14 @@ router.post('/login', (req,res) => {
             req.session.loggedIn = true;
             res.json({user: volunteerData, message: 'You are now logged in!'});
         });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     });
 });
 
-//nogout route
+//logout route
 router.post('/logout', (req,res) => {
     if(req.session.loggedIn){
         req.session.destroy(()=> {

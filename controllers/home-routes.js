@@ -67,10 +67,10 @@ router.get('/:c_id', (req, res) => {
                     model: Volunteer,
                     attributes: ['username']
                 } */
-                 
+
                 model: Volunteer,
                 attributes: ['username']
-                
+
             },
             {
                 model: Kennel,
@@ -103,7 +103,7 @@ router.get('/:c_id', (req, res) => {
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/dashboard');
+        res.redirect('/');
         return;
     }
 
@@ -119,13 +119,4 @@ router.get('/signup', (req, res) => {
     res.render('sign-up');
 });
 
-
-
 module.exports = router;
-
-
-
-
-
-
-

@@ -2,7 +2,9 @@ const router = require('express').Router();
 const withAuth = require('../../utils/auth')
 const sequelize = require('../../config/connection');
 const { Volunteer } = require('../../models');
+
 //endpoints for volunteer inclode /volunteer, /volunteer/id, /volunteer/login, /volunteer/logout
+
 //get all volunteers via /api/volunteer endpoint
 router.get('/', (req, res) => {
     Volunteer.findAll({
@@ -86,11 +88,10 @@ router.post('/login', (req,res) => {
             req.session.loggedIn = true;
             res.json({user: volunteerData, message: 'You are now logged in!'});
         });
-
     });
 });
 
-//nogout route
+//logout route
 router.post('/logout', (req,res) => {
     if(req.session.loggedIn){
         req.session.destroy(()=> {

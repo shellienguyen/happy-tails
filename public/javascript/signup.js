@@ -9,8 +9,8 @@ async function signupFormHandler(event) {
   const v_lname = document.querySelector('#lname').value.trim();
   // console.log(username + v_fname + v_lname)
 
-  
-  if (username && password) {
+
+  if (username && password && v_fname && v_lname) {
     console.log('username and password filled out')
     const response = await fetch('/api/volunteer', {
       method: 'post',
@@ -18,19 +18,19 @@ async function signupFormHandler(event) {
         username,
         password,
         v_fname,
-       v_lname
+        v_lname
       }),
       headers: { 'Content-Type': 'application/json' }
     });
 
     if (response.ok) {
       console.log(response)
-      document.location.replace('/dashboard/');
+      document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
     }
   }
 }
 
-// document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
-document.getElementById('signup-form').addEventListener('submit', signupFormHandler);
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+//document.getElementById('.signup-form').addEventListener('submit', signupFormHandler);

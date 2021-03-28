@@ -13,7 +13,6 @@ Volunteer.init(
    {
       v_id: {
          type: DataTypes.INTEGER,
-         allowNull: false,
          primaryKey: true,
          autoIncrement: true
       },
@@ -25,7 +24,7 @@ Volunteer.init(
       password: {
          type: DataTypes.STRING,
          allowNull: false,
-         validate: {len: [6]}
+         validate: {len: [6,20]}
       },
       v_fname: {
          type: DataTypes.STRING,

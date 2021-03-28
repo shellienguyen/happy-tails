@@ -5,9 +5,10 @@ const dashboardRoutes = require('./dashboard-routes.js');
 
 
 // Connect api and front end routes
+router.use('/dashboard', dashboardRoutes);
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
-router.use('/dashboard', dashboardRoutes);
+
 
 // Send a 404 error if user goes to undefined route
 router.use((req, res) => {

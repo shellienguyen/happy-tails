@@ -9,18 +9,18 @@ const { Canine, Volunteer, Kennel, Demeanor } = require('../models');
 router.get("/", (req, res) => {
     Canine.findAll({
         attributes: [
-            'c_id',
-            'c_name',
-            'c_demeanor',
-            [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_am)'), 'has_walked_am'],
-            [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_pm)'), 'has_walked_pm'],
-            [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_am)'), 'has_potty_am'],
-            [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_pm)'), 'has_potty_pm'],
-            'k_id'],
-        include: [
-            {
-                model: Volunteer,
-                attributes: ['username']
+        'c_id', 
+        'c_name', 
+        'c_demeanor', 
+        [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_am)'), 'has_walked_am'],
+        [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_pm)'), 'has_walked_pm'],
+        [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_am)'), 'has_potty_am'],
+        [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_pm)'), 'has_potty_pm'],
+        'k_id'],
+        include:[
+            { 
+            model: Volunteer, 
+                      attributes: ['username']
             },
             {
                 model: Demeanor,
@@ -42,7 +42,15 @@ router.get("/", (req, res) => {
             res.status(500).json(err);
         });
 });
-/* 
+
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/dashboard');
+        return;
+    }
+
+    res.render('login-signup');
+});
 // get single dog  
 router.get('/:c_id', (req, res) => {
     Canine.findOne({
@@ -101,14 +109,7 @@ router.get('/:c_id', (req, res) => {
         });
 }); */
 
-router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/dashboard');
-        return;
-    }
 
-    res.render('login-signup');
-});
 
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {

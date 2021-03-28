@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
         }
     })
         .then(volunteerData => {
-            console.log('router.get inside home-routes.js');
+            console.log(volunteerData);
+            // volunteerData.loggedIn = req.session.loggedIn
             res.json(volunteerData)
         })   
         .catch(err => {
@@ -40,6 +41,7 @@ router.get('/:v_id', (req, res) => {
 
 //Create a new volunteer 
 router.post('/', (req, res) => {
+    console.log('create volunteer')
     Volunteer.create({
         v_fname: req.body.v_fname,
         v_lname: req.body.v_lname,
@@ -47,14 +49,17 @@ router.post('/', (req, res) => {
         password:req.body.password
     })
     .then(volunteerData => {
-        res.session.save(()=> {
+        req.session.save(()=> {
         req.session.v_id = volunteerData.v_id;
         req.session.username = volunteerData.username;
         req.session.loggedIn = true;
-        res.json(volunteerData);
-    });
-
-    });
+    }) 
+    res.json(volunteerData);
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json(err);
+    })
 });
 
 //login end point for volunteer

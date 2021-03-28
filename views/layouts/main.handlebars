@@ -18,10 +18,10 @@
                 <a href="#" class="brand-logo">Happy Tails</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     {{#if loggedIn}}
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="logout.html">Logout</a></li>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li ><a id="logout" href="/logout">Logout</a></li>
                     {{else}}
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="/login">Login</a></li>
                     {{/if}}
                 </ul>
             </div>
@@ -45,7 +45,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
+    {{else}}
+    <script src="/javascript/login.js"></script>
+    <script src="/javascript/signup.js"></script>
+
     {{/if}}
+
 
 </body>
 

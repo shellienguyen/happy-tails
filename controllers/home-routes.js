@@ -43,8 +43,16 @@ router.get("/", (req, res) => {
         });
 });
 
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/dashboard');
+        return;
+    }
+
+    res.render('login-signup');
+});
 // get single dog  
-router.get('/id/:c_id', (req, res) => {
+router.get('/:c_id', (req, res) => {
     Canine.findOne({
         where: {
             c_id: req.params.c_id
@@ -101,14 +109,7 @@ router.get('/id/:c_id', (req, res) => {
         });
 });
 
-router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/dashboard');
-        return;
-    }
 
-    res.render('login-signup');
-});
 
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {

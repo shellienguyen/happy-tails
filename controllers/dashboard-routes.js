@@ -4,10 +4,9 @@ const { Canine, Volunteer, Kennel, Demeanor } = require("../models");
 const withAuth = require("../utils/auth");
 
 // get all dogs for dashboard
-router.get("/dashboard", (req, res) => {
+router.get("/", (req, res) => {
     console.log(req.session.v_id)
     Canine.findAll({
-        
           attributes: [
             'c_id', 
             'c_name', 
@@ -34,7 +33,10 @@ router.get("/dashboard", (req, res) => {
     })
     .then(dbCanineData => {
         const canine = dbCanineData.map(canine => canine.get({ plain: true }));
-        res.render('dashboard', canine)
+        // res.json(canine);
+        res.render('dashboard', { 
+          canine, 
+          loggedIn: req.session.loggedIn})
     })
     .catch(err => {
         console.log(err);
@@ -43,13 +45,15 @@ router.get("/dashboard", (req, res) => {
 });
 
 // get single dog
-router.get("/edit/:id",  (req, res) => {
-  Canine.findByPk(req.params.c_id, {
+router.get("/edit/:c_id",  (req, res) => {
+  Canine.findOne({
+      where: {
+          c_id:req.params.c_id}, 
+      },{
     attributes: [
       "c_id",
       "c_name",
       "c_demeanor",
-      "body",
       [
         sequelize.literal(
           "(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_am)"
@@ -110,7 +114,7 @@ router.get("/edit/:id",  (req, res) => {
       if (dbCanineData) {
         const canine = dbCanineData.get({ plain: true });
 
-        res.render("edit-canine", {
+        res.render("single-canine", {
           canine,
           loggedIn: true,
           username: req.session.username,

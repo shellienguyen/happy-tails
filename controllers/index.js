@@ -5,8 +5,8 @@ const dashboardRoutes = require('./dashboard-routes.js');
 
 
 // Connect api and front end routes
-router.use('/', homeRoutes);
 router.use('/dashboard', dashboardRoutes);
+router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 
 

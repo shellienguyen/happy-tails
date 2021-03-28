@@ -36,7 +36,7 @@ router.get('/', withAuth, (req, res) => {
                 canine: dbCanineData.map((canine) => canine.get({ plain: true })),
                 shift: shift_change()
             };
-            res.render("homepage", { canine });
+            res.render("dashboard", { canine });
             // res.json(dbCanineData);
         })
         .catch((err) => {

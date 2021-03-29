@@ -7,28 +7,37 @@ Has Demeanor: {{demeanor.d_desc}}
 Has Kennel: {{kennel.k_name}} --}}
 
 <div class="row">
-    <div class="col s12 m6 center">
-        <div class="card z-depth-2">
-            <div class="card-content">
-                <h4 class="doggy-name"><span class="status-emoji">&#128513</span>{{canine.c_name}}</h4>
-                {{!-- dog image --}}
-                <img class="dogs" src="/images/dogs/{{canine.c_name}}.jpg" alt="{{canine.c_name}}" width="400"
-                    heigh="auto">
-            </div>
-            <div class="card-action">
-                <p>Please check the activities that have been completed</p>
-                <label>
-                    <input type="checkbox" class="filled-in" id="walk-check" />
-                    <span>Walk</span>
-                </label>
-                <label>
-                    <input type="checkbox" class="filled-in" id="potty-check" />
-                    <span>Potty</span>
-                </label>
+    <div class="col s12 m4 l2"></div>
 
-                {{!-- submit button --}}
-                <a class="waves-effect waves-light btn" type="submit">Submit</a>
+    <div class="col s12 m4 l8 center">
+        
+            <div class="card z-depth-2">
+                <div class="card-content">
+                    <h4 class="doggy-name"><span class="status-emoji">&#128513</span>{{canine.c_name}}</h4>
+                    {{!-- dog image --}}
+                    <img class="single-dog-image" src="/images/dogs/{{canine.c_name}}.jpg" alt="{{canine.c_name}}"
+                        width="400" heigh="auto">
+                </div>
+                <div class="card-action">
+                    <p>Please check the activities that have been completed</p>
+                    <label class="check">
+                        <input type="checkbox" class="filled-in" id="walk-check" />
+                        <span>Walk</span>
+                    </label>
+                    <label class="check">
+                        <input type="checkbox" class="filled-in" id="potty-check" />
+                        <span>Potty</span>
+                    </label>
+                    <br>
+                    <div class="button-container">
+                        {{!-- submit button --}}
+                        <a class="waves-effect waves-light btn" type="submit">Submit</a>
+                    </div>
+                </div>
             </div>
-        </div>
+        
     </div>
+
+    <div class="col s12 m4 l2"></div>
+
 </div>

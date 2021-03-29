@@ -1,0 +1,9 @@
+<tr>
+<td class="{{demeanor.d_desc}}"> <span class="status-emoji">&#128542</span>{{c_name}} </td>
+<td> {{has_potty_pm}}</td>
+<td> {{has_walk_pm}}</td>
+<td class="{{demeanor.d_desc}}"> {{demeanor.d_desc}} </td>
+<td> {{kennel.k_name}} </td>
+{{!-- this might need to be if statement based on potty/walk values --}}
+<td><button type="submit" id="select-dog" class="btn"><a href="/dashboard/edit/{{c_id}}">Select</a></button></td>
+</tr>

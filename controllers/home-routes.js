@@ -42,6 +42,23 @@ router.get("/", (req, res) => {
             res.status(500).json(err);
         });
 });
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('login-signup');
+});
+
+router.get('/signup', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('sign-up');
+});
 
 
 router.get('/login', (req, res) => {

@@ -92,4 +92,5 @@ Tier 2 employee (add dogs, remove dogs, remove volunteers, add tier 1 employees)
   shelliednnguyen@gmail.com
   
   ![](./images/pic_1.png)
-
+  ![](./images/association.png)
+![](./images/association.png)

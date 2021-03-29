@@ -9,14 +9,14 @@ const CanineData = [
       k_id: 1
    },
    {
-      c_name: 'Charlie',
+      c_name: 'Penny',
       c_demeanor: 1,
       has_walked_am: 3,
       has_potty_am: 4,
       k_id: 2
    },
    {
-      c_name: 'Bailey',
+      c_name: 'Louie',
       c_demeanor: 2,
       k_id: 3
    },

@@ -1,7 +1,9 @@
 $('.doggie').on('click', async function (evt) {
     evt.preventDefault();
     let dogbtn = $(this).attr('id')
-
+    const c_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+      ];
     let shift = moment().hour()
     console.log(dogbtn, shift)
     let dogObj;
@@ -31,16 +33,13 @@ $('.doggie').on('click', async function (evt) {
      }
      console.log(dogObj);
      
-
+     console.log(c_id);
      // api call c_id update pass dogObj
-     const response =  await fetch(`/api/canine/:${c_id}`, {
+     const response =  await fetch(`/api/canine/${c_id}`, {
         method: 'PUT',
-        body: JSON.stringify({
-            has_walked_am,
-            has_potty_am,
-            has_walked_pm,
-            has_potty_pm
-        }),
+        body: JSON.stringify(
+            dogObj
+        ),
         headers: {
           'Content-Type': 'application/json'
         }
@@ -54,3 +53,5 @@ $('.doggie').on('click', async function (evt) {
     
 })
 //  document.querySelector(`${canine.c_id}`).addEventListener('submit', editFormHandler);
+
+

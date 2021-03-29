@@ -54,24 +54,29 @@
 
 <div class="row s8">
 
-{{#if canine.shift}}
+    {{#if canine.shift}}
 
-{{> am-table}}
+    {{> am-table}}
 
-{{else}}
+    {{else}}
 
-{{> pm-table}}
+    {{> pm-table}}
 
-{{/if}}
+    {{/if}}
 
 </div>
 
 {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
+<script src="/javascript/logout.js"></script>
 {{else}}
-    <script src="/javascript/login.js"></script>
-    <script src="/javascript/signup.js"></script>
+<script src="/javascript/login.js"></script>
+<script src="/javascript/signup.js"></script>
 {{/if}}
 
-
+{{!-- added script before dashboard.js on dashboard.hbs but still $ not recognized --}}
+{{!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous"></script> --}}
 <script src="/javascript/dashboard.js"></script>

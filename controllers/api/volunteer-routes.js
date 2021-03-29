@@ -95,7 +95,6 @@ router.post('/signup', (req, res) => {
         req.session.v_id = volunteerData.v_id;
         req.session.username = volunteerData.username;
         req.session.loggedIn = true;
-        //res.json({user: volunteerData, message: 'You are now logged in!'})
         res.json(volunteerData);
     }) 
 

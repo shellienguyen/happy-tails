@@ -7,12 +7,8 @@ async function signupFormHandler(event) {
   const password = document.querySelector('#password-signup').value.trim();
   const v_fname = document.querySelector('#fname').value.trim();
   const v_lname = document.querySelector('#lname').value.trim();
-  // console.log(username + v_fname + v_lname)
-console.log(username);
-console.log(password);
-console.log(v_fname);
-console.log(v_lname);
 
+  
   if (username && password && v_fname && v_lname) {
     console.log('username and password filled out')
     const response = await fetch('/api/volunteer/signup', {

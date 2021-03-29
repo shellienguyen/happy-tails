@@ -4,7 +4,7 @@ const { Canine, Volunteer, Kennel, Demeanor } = require("../models");
 const withAuth = require("../utils/auth");
 
 // get all dogs for dashboard
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
     console.log(req.session.v_id)
     Canine.findAll({
           attributes: [

@@ -31,18 +31,6 @@ router.get("/", withAuth, (req, res) => {
                 }
             ]
     })
-<<<<<<< HEAD
-        .then((dbCanineData) => {
-            const canine = {
-                canine: dbCanineData.map((canine) => canine.get({ plain: true })),
-                shift: shift_change()
-            };
-            res.render("dashboard", { canine });
-            // res.json(dbCanineData);
-        })
-        .catch((err) => {
-            res.status(500).json(err);
-=======
     .then(dbCanineData => {
         const canine = dbCanineData.map(canine => canine.get({ plain: true }));
         // res.json(canine);
@@ -130,7 +118,6 @@ router.get("/edit/:c_id",  (req, res) => {
           canine,
           loggedIn: true,
           username: req.session.username,
->>>>>>> a0816f721320131111aaf8e74a787d7626b9c74d
         });
       } else {
         res.status(404).end();

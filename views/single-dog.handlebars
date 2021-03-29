@@ -14,7 +14,10 @@ Has Kennel: {{kennel.k_name}} --}}
         
             <div class="card z-depth-2">
                 <div class="card-content">
+                    {{#if happy_tail_pm}}
                     <h3 class="doggy-name flow-text"><span class="status-emoji">&#128513</span>{{canine.c_name}}</h3>
+                    {{else}}
+                    {{/if}}
                     {{!-- dog image --}}
                     <img class="single-dog-image" src="/images/dogs/{{canine.c_name}}.jpg" alt="{{canine.c_name}}"
                         width="400" heigh="auto">

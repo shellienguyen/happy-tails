@@ -29,6 +29,7 @@ router.get('/', (req, res) => {
             }
         ]
     }).then(data => {
+        console.log(data);
         res.json(data);
     }).catch(err => {
         console.log(err);

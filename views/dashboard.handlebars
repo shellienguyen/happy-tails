@@ -43,6 +43,8 @@
                 </form>
 </div>
 
+    {{>pm-table}}
+</div>
     
  <div class="row s8">
     <table class="striped z-depth-2">
@@ -63,8 +65,9 @@
  </div>  
 
 
-
-
-
-
-
+{{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+{{else}}
+    <script src="/javascript/login.js"></script>
+    <script src="/javascript/signup.js"></script>
+{{/if}}

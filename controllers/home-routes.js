@@ -60,6 +60,24 @@ router.get('/signup', (req, res) => {
     res.render('sign-up');
 });
 
+
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login-signup');
+});
+
+router.get('/signup', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login-signup');
+});
+
+
 // get single dog  
 router.get('/:c_id', (req, res) => {
     Canine.findOne({
@@ -117,7 +135,5 @@ router.get('/:c_id', (req, res) => {
             res.status(500).json(err);
         });
 });
-
-
 
 module.exports = router;

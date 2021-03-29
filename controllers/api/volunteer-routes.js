@@ -22,48 +22,6 @@ router.get('/', (req, res) => {
         })
 });
 
-//get volunteer by id
-router.get('/:v_id', (req, res) => {
-    Volunteer.findOne({
-        attributes: {
-            exclude: ['password']
-        },
-        where: {
-            v_id: req.params.v_id
-        }
-    })
-        .then(volunteerData => {
-            console.log('router.get inside home-routes.js');
-            res.json(volunteerData)
-        })   
-        .catch(err => {
-            res.status(500).json(err);
-        })
-});
-
-//Create a new volunteer 
-router.post('/', (req, res) => {
-    console.log('create volunteer')
-    Volunteer.create({
-        v_fname: req.body.v_fname,
-        v_lname: req.body.v_lname,
-        username:req.body.username,
-        password:req.body.password
-    })
-    .then(volunteerData => {
-        req.session.save(()=> {
-        req.session.v_id = volunteerData.v_id;
-        req.session.username = volunteerData.username;
-        req.session.loggedIn = true;
-    }) 
-    res.json(volunteerData);
-    })
-    .catch(err => {
-        console.log(err)
-        res.status(500).json(err);
-    })
-});
-
 //login end point for volunteer
 router.post('/login', (req,res) => {
     Volunteer.findOne({
@@ -103,5 +61,49 @@ router.post('/logout', (req,res) => {
     }
 });
 
+
+//get volunteer by id
+router.get('/:v_id', (req, res) => {
+    Volunteer.findOne({
+        attributes: {
+            exclude: ['password']
+        },
+        where: {
+            v_id: req.params.v_id
+        }
+    })
+        .then(volunteerData => {
+            console.log('router.get inside home-routes.js');
+            res.json(volunteerData)
+        })   
+        .catch(err => {
+            res.status(500).json(err);
+        })
+});
+
+//Create a new volunteer 
+router.post('/signup', (req, res) => {
+    console.log('create volunteer')
+    Volunteer.create({
+        v_fname: req.body.v_fname,
+        v_lname: req.body.v_lname,
+        username:req.body.username,
+        password:req.body.password
+    })
+    .then(volunteerData => {
+        req.session.save(()=> {
+        req.session.v_id = volunteerData.v_id;
+        req.session.username = volunteerData.username;
+        req.session.loggedIn = true;
+        //res.json({user: volunteerData, message: 'You are now logged in!'})
+        res.json(volunteerData);
+    }) 
+
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json(err);
+    })
+});
 
 module.exports = router;

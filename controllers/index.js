@@ -1,7 +1,7 @@
 const router = require('express').Router();
+const dashboardRoutes = require('./dashboard-routes.js');
 const apiRoutes = require('./api');
 const homeRoutes = require('./home-routes.js');
-const dashboardRoutes = require('./dashboard-routes.js');
 
 
 // Connect api and front end routes

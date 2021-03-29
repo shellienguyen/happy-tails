@@ -3,8 +3,6 @@ const router = require('express').Router();
 const session = require('express-session');
 const sequelize = require('../config/connection');
 const { Canine, Volunteer, Kennel, Demeanor } = require('../models');
-
-
 // get all dogs for homepage
 router.get("/", (req, res) => {
     Canine.findAll({
@@ -31,7 +29,6 @@ router.get("/", (req, res) => {
                 attributes: ['k_name']
             }
         ]
-
     })
         .then((dbCanineData) => {
             const canine = dbCanineData.map((canine) => canine.get({ plain: true }));
@@ -42,13 +39,11 @@ router.get("/", (req, res) => {
             res.status(500).json(err);
         });
 });
-
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/dashboard');
         return;
     }
-
     res.render('login-signup');
 });
 // get single dog  
@@ -95,9 +90,7 @@ router.get('/:c_id', (req, res) => {
                 res.status(404).json({ message: 'No Canine found with that id' });
                 return;
             }
-
             const canine = dbCanineData.get({ plain: true });
-
             res.render('single-canine', {
                 canine,
                 loggedIn: req.session.loggedIn
@@ -108,25 +101,11 @@ router.get('/:c_id', (req, res) => {
             res.status(500).json(err);
         });
 });
-
-
-
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
     }
-
     res.render('sign-up');
 });
-
-
-
 module.exports = router;
-
-
-
-
-
-
-

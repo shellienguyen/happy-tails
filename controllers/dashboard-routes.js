@@ -114,7 +114,7 @@ router.get("/edit/:c_id",  (req, res) => {
       if (dbCanineData) {
         const canine = dbCanineData.get({ plain: true });
 
-        res.render("single-canine", {
+        res.render("single-dog", {
           canine,
           loggedIn: true,
           username: req.session.username,

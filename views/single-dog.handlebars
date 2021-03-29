@@ -6,6 +6,7 @@ Has Walk AM: {{canine.has_walk_pm}}
 Has Demeanor: {{demeanor.d_desc}}
 Has Kennel: {{kennel.k_name}} --}}
 
+<br><br>
 <div class="row">
     <div class="col s12 m4 l2"></div>
 
@@ -13,20 +14,20 @@ Has Kennel: {{kennel.k_name}} --}}
         
             <div class="card z-depth-2">
                 <div class="card-content">
-                    <h4 class="doggy-name"><span class="status-emoji">&#128513</span>{{canine.c_name}}</h4>
+                    <h3 class="doggy-name flow-text"><span class="status-emoji">&#128513</span>{{canine.c_name}}</h3>
                     {{!-- dog image --}}
                     <img class="single-dog-image" src="/images/dogs/{{canine.c_name}}.jpg" alt="{{canine.c_name}}"
                         width="400" heigh="auto">
                 </div>
                 <div class="card-action">
-                    <p>Please check the activities that have been completed</p>
+                    <p class="flow-text">Please check the activities that have been completed</p>
                     <label class="check">
                         <input type="checkbox" class="filled-in" id="walk-check" />
-                        <span>Walk</span>
+                        <span class="flow-text">Walk</span>
                     </label>
                     <label class="check">
                         <input type="checkbox" class="filled-in" id="potty-check" />
-                        <span>Potty</span>
+                        <span class="flow-text">Potty</span>
                     </label>
                     <br>
                     <div class="button-container">

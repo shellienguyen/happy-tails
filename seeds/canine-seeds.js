@@ -6,6 +6,8 @@ const CanineData = [
       c_demeanor: 1,
       has_walked_am: 1,
       has_potty_am: 2,
+      has_walked_pm: 3,
+      has_potty_pm: 3,
       k_id: 1
    },
    {

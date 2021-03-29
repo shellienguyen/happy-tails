@@ -49,6 +49,11 @@ main {
 }
 
 
+.dog-logo {
+  max-width: 5vw;
+  height: auto;
+}
+
 /* #single-dog-container {
   border:dimgray;
   border-style: outset;

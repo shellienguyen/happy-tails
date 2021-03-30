@@ -15,13 +15,15 @@ let allHelpers = {
     }
 
     return false;
-
   },
 
-  // check_box: () => {
-  // if dog has_walked or has_pottied then load that status into checkboxes on single-dog page using "checked" attribute
+  isDone: (activity) => {
+    if (activity) {
+      return true;
+    };
 
-  // },
+    return false;
+  },
 
   happy_tail_am: (has_walked_am, has_potty_am) => {
     // if dog has_walked AND has_pottied then change status-emoji from sad face to happy face 

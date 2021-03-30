@@ -11,42 +11,68 @@ Has Kennel: {{kennel.k_name}} --}}
     <div class="col s12 m4 l2"></div>
 
     <div class="col s12 m4 l8 center">
-        
-            <div class="card z-depth-2">
-                <div class="card-content">
-                    {{#if happy_tail_pm}}
-                    <h3 class="doggy-name flow-text"><span class="status-emoji">&#128513</span>{{canine.c_name}}</h3>
-                    {{else}}
-                    {{/if}}
-                    {{!-- dog image --}}
-                    <img class="single-dog-image" src="/images/dogs/{{canine.c_name}}.jpg" alt="{{canine.c_name}}"
-                        width="400" heigh="auto">
-                </div>
-                <div class="card-action">
-                    <p class="flow-text">Please check the activities that have been completed</p>
-                    <label class="check">
-                        <input type="checkbox" class="filled-in" id="walk-check" />
-                        <span class="flow-text">Walk</span>
-                    </label>
-                    <label class="check">
+        <div class="card z-depth-2">
+            <div class="card-content">
+                {{#if happy_tail_pm}}
+                <h3 class="doggy-name flow-text"><span class="status-emoji">&#128513</span>{{canine.c_name}}</h3>
+                {{else}}
+                {{/if}}
+                {{!-- dog image --}}
+                <img class="single-dog-image" src="/images/dogs/{{canine.c_name}}.jpg" alt="{{canine.c_name}}"
+                    width="400" heigh="auto">
+            </div>
+
+            <div class="card-action">
+                <p class="flow-text">Please check the activities that have been completed</p>
+                
+                <label class="check">
+                    {{#if (shift_change)}}
+                        {{#if (isDone canine.has_potty_am)}}
+                        <input type="checkbox" class="filled-in" id="potty-check" checked/>
+                        {{else}}
                         <input type="checkbox" class="filled-in" id="potty-check" />
-                        <span class="flow-text">Potty</span>
-                    </label>
-                    <br>
-                    <div class="button-container">
-                        {{!-- submit button --}}
-                        <a class="waves-effect waves-light btn doggie" id={{canine.c_id}} data-v_id = {{v_id}} type="submit">Submit</a>
-                    </div>
+                        {{/if}}
+                    {{else}}
+                        {{#if (isDone canine.has_potty_pm)}}
+                        <input type="checkbox" class="filled-in" id="potty-check" checked/>
+                        {{else}}
+                        <input type="checkbox" class="filled-in" id="potty-check" />
+                        {{/if}}
+                    {{/if}}
+                    <span class="flow-text">Potty</span>
+                </label>
+
+                <label class="check">
+                    {{#if (shift_change)}}
+                        {{#if (isDone canine.has_walked_am)}}
+                        <input type="checkbox" class="filled-in" id="walk-check" checked/>
+                        {{else}}
+                        <input type="checkbox" class="filled-in" id="walk-check" />
+                        {{/if}}
+                    {{else}}
+                        {{#if (isDone canine.has_walked_pm)}}
+                        <input type="checkbox" class="filled-in" id="walk-check" checked/>
+                        {{else}}
+                        <input type="checkbox" class="filled-in" id="walk-check" />
+                        {{/if}}
+                    {{/if}}
+                    <span class="flow-text">Walk</span>
+                </label>
+
+                <br>
+
+                <div class="button-container">
+                    {{!-- submit button --}}
+                    <a class="waves-effect waves-light btn doggie" id={{canine.c_id}} data-v_id={{v_id}}
+                        type="submit">Submit</a>
                 </div>
             </div>
-        
+        </div>
     </div>
 
     <div class="col s12 m4 l2"></div>
-
 </div>
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="/javascript/single-canine.js"></script>

@@ -46,6 +46,7 @@ router.get("/", withAuth, (req, res) => {
 
 // get single dog
 router.get("/edit/:c_id",  (req, res) => {
+  console.log(req.session.v_id);
   Canine.findOne({
       where: {
           c_id:req.params.c_id}, 
@@ -111,6 +112,7 @@ router.get("/edit/:c_id",  (req, res) => {
     ],
   })
     .then((dbCanineData) => {
+      console.log(dbCanineData);
       if (dbCanineData) {
         const canine = dbCanineData.get({ plain: true });
 
@@ -118,6 +120,7 @@ router.get("/edit/:c_id",  (req, res) => {
           canine,
           loggedIn: true,
           username: req.session.username,
+          v_id: req.session.v_id
         });
       } else {
         res.status(404).end();

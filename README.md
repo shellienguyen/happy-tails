@@ -93,4 +93,4 @@ Tier 2 employee (add dogs, remove dogs, remove volunteers, add tier 1 employees)
   
   ![](./images/pic_1.png)
   ![](./images/association.png)
-![](./images/association.png)
+  ![](./images/association.png)

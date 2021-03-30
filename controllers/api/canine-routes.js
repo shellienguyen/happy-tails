@@ -67,6 +67,7 @@ router.get('/:c_id', (req, res) => {
 
         ]
     }).then(dbCanineData => {
+        console.log(dbCanineData);
         res.json(dbCanineData);
 
     })
@@ -77,14 +78,16 @@ router.get('/:c_id', (req, res) => {
 })
 
 //update dog
-router.get('/:c_id', (req, res) => {
+router.put('/:c_id', (req, res) => {
     Canine.update(
-        {
-            has_walked_am: req.body.has_walked_am,
-            has_walked_pm: req.body.has_walked_pm,
-            has_potty_am: req.body.has_potty_am,
-            has_potty_pm: req.body.has_potty_pm
-        },
+        // {
+            
+        //     has_walked_am: req.body.has_walked_am,
+        //     has_walked_pm: req.body.has_walked_pm,
+        //     has_potty_am: req.body.has_potty_am,
+        //     has_potty_pm: req.body.has_potty_pm
+        // },
+        req.body,
         {
             where: {
                 c_id: req.params.c_id
@@ -93,7 +96,7 @@ router.get('/:c_id', (req, res) => {
         })
         .then(dbCanineData => {
             res.json(dbCanineData);
-
+            res.redirect('/dashboard')
         })
         .catch(err => {
             console.log(err);
@@ -101,6 +104,8 @@ router.get('/:c_id', (req, res) => {
         });
 
 });
+
+// create put route for to update
 
 //delete a dog won't be actviated as volunteers don't have access to delete
 

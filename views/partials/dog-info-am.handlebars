@@ -1,5 +1,9 @@
 <tr>
+{{#if (happy_tail_am has_walked_am has_potty_am)}}
+<td class="{{demeanor.d_desc}}"> <span class="status-emoji">&#128513</span>{{c_name}} </td>
+{{else}}
 <td class="{{demeanor.d_desc}}"> <span class="status-emoji">&#128542</span>{{c_name}} </td>
+{{/if}}
 <td> {{has_potty_am}}</td>
 <td> {{has_walked_am}}</td>
 <td class="{{demeanor.d_desc}}"> {{demeanor.d_desc}} </td>

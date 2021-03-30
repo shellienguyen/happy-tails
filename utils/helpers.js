@@ -14,7 +14,10 @@ module.exports = {
   // },
 
   shift_change: () => {
-    let currentHour = moment().hour();
+    // let currentHour = moment().hour();
+    let today = new Date();
+    let currentHour = today.getHours();
+
     console.log(currentHour);
     if (currentHour >= 0 && currentHour <= 11) {
       console.log('inside here')
@@ -39,7 +42,7 @@ module.exports = {
     return false;
   },
 
-  happy_tail_pm: () => {
+  happy_tail_pm: (has_walked_pm) => {
     // if dog has_walked AND has_pottied then change status-emoji from sad face to happy face 
     if (has_walked_pm) {
       console.log('say something')

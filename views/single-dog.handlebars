@@ -11,32 +11,51 @@ Has Kennel: {{kennel.k_name}} --}}
     <div class="col s12 m4 l2"></div>
 
     <div class="col s12 m4 l8 center">
-        
-            <div class="card z-depth-2">
-                <div class="card-content">
-                    <h3 class="doggy-name flow-text"><span class="status-emoji">&#128513</span>{{canine.c_name}}</h3>
-                    {{!-- dog image --}}
-                    <img class="single-dog-image" src="/images/dogs/{{canine.c_name}}.jpg" alt="{{canine.c_name}}"
-                        width="400" heigh="auto">
-                </div>
-                <div class="card-action">
-                    <p class="flow-text">Please check the activities that have been completed</p>
+
+        <div class="card z-depth-2">
+            <div class="card-content">
+                <h3 class="doggy-name flow-text"><span class="status-emoji">&#128513</span>{{canine.c_name}}</h3>
+                {{!-- dog image --}}
+                <img class="single-dog-image" src="/images/dogs/{{canine.c_name}}.jpg" alt="{{canine.c_name}}"
+                    width="400" heigh="auto">
+            </div>
+            <div class="card-action">
+                <p class="flow-text">Please check the activities that have been completed</p>
+
+                <div class="am-containter">
+                    {{!-- AM --}}
                     <label class="check">
                         <input type="checkbox" class="filled-in" id="walk-check" />
-                        <span class="flow-text">Walk</span>
+                        <span class="flow-text">Walk AM</span>
                     </label>
                     <label class="check">
                         <input type="checkbox" class="filled-in" id="potty-check" />
-                        <span class="flow-text">Potty</span>
+                        <span class="flow-text">Potty AM</span>
                     </label>
-                    <br>
-                    <div class="button-container">
-                        {{!-- submit button --}}
-                        <a class="waves-effect waves-light btn" type="submit">Submit</a>
-                    </div>
+                </div>
+                
+                <br>
+                <div class="pm-container">
+                    {{!-- PM --}}
+                    <label class="check">
+                        <input type="checkbox" class="filled-in" id="walk-check" />
+                        <span class="flow-text">Walk PM</span>
+                    </label>
+                    <label class="check">
+                        <input type="checkbox" class="filled-in" id="potty-check" />
+                        <span class="flow-text">Potty PM</span>
+                    </label>
+                </div>
+
+
+                <br>
+                <div class="button-container">
+                    {{!-- submit button --}}
+                    <a class="waves-effect waves-light btn" type="submit">Submit</a>
                 </div>
             </div>
-        
+        </div>
+
     </div>
 
     <div class="col s12 m4 l2"></div>

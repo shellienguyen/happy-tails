@@ -96,8 +96,9 @@ router.put('/:c_id', (req, res) => {
 
         })
         .then(dbCanineData => {
-            res.json(dbCanineData);
-            res.redirect('/dashboard')
+            return res.json(dbCanineData);
+            // 
+            // res.redirect('/dashboard')
         })
         .catch(err => {
             console.log(err);

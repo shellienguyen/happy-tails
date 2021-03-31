@@ -7,6 +7,7 @@ const withAuth = require("../utils/auth");
 router.get("/", withAuth, (req, res) => {
   console.log(req.session.v_id)
   Canine.findAll({
+    order: [['c_name', 'ASC']],
     attributes: [
       'c_id',
       'c_name',

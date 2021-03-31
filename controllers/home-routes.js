@@ -7,6 +7,7 @@ const { Canine, Volunteer, Kennel, Demeanor } = require('../models');
 // get all dogs for homepage
 router.get("/", (req, res) => {
     Canine.findAll({
+        order: [['c_name', 'ASC']],
         attributes: [
             'c_id',
             'c_name',

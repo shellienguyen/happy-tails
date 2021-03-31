@@ -38,6 +38,7 @@ let transporter = nodemailer.createTransport({
 //get all canine
 router.get('/', (req, res) => {
     Canine.findAll({
+        order: [['c_name', 'ASC']],
         attributes: [
                     'c_id', 
                     'c_name', 

@@ -33,7 +33,7 @@ router.get("/", withAuth, (req, res) => {
   })
     .then(dbCanineData => {
       const canine = dbCanineData.map(canine => canine.get({ plain: true }));
-      console.log(canine[1]);
+      // console.log(canine[1]);
       // res.json(canine);
       res.render('dashboard', {
         canine,
@@ -117,7 +117,7 @@ router.get("/edit/:c_id", (req, res) => {
       console.log(dbCanineData);
       if (dbCanineData) {
         const canine = dbCanineData.get({ plain: true });
-      
+        
         res.render("single-dog", {
           canine,
           loggedIn: true,

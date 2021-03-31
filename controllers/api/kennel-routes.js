@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
         }]
     })
         .then(kennelData => {
-            console.log('router.get inside home-routes.js');
             res.json(kennelData)
         })   
         .catch(err => {

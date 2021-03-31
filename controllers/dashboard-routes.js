@@ -5,7 +5,6 @@ const withAuth = require("../utils/auth");
 
 // get all dogs for dashboard
 router.get("/", withAuth, (req, res) => {
-  console.log(req.session.v_id)
   Canine.findAll({
     order: [['c_name', 'ASC']],
     attributes: [
@@ -34,8 +33,51 @@ router.get("/", withAuth, (req, res) => {
   })
     .then(dbCanineData => {
       const canine = dbCanineData.map(canine => canine.get({ plain: true }));
-      // console.log(canine[1]);
-      // res.json(canine);
+      res.render('dashboard', {
+        canine,
+        loggedIn: req.session.loggedIn
+      })
+    })
+    .catch(err => {
+      console.log(err);
+      // res.redirect('login');
+    });
+});
+
+// get all dogs for dashboard based on difficulty level
+router.get("/:c_demeanor", withAuth, (req, res) => {
+console.log('*************************');
+console(req.params.c_demeanor);
+console.log('*************************');
+  Canine.findAll({
+    where: { c_id: req.params.c_demeanor },
+    order: [['c_name', 'ASC']],
+    attributes: [
+      'c_id',
+      'c_name',
+      'c_demeanor',
+      [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_am)'), 'has_walked_am'],
+      [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_pm)'), 'has_walked_pm'],
+      [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_am)'), 'has_potty_am'],
+      [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_pm)'), 'has_potty_pm'],
+      'k_id'],
+    include: [
+      {
+        model: Volunteer,
+        attributes: ['username']
+      },
+      {
+        model: Demeanor,
+        attributes: ['d_desc']
+      },
+      {
+        model: Kennel,
+        attributes: ['k_name']
+      }
+    ]
+  })
+    .then(dbCanineData => {
+      const canine = dbCanineData.map(canine => canine.get({ plain: true }));
       res.render('dashboard', {
         canine,
         loggedIn: req.session.loggedIn
@@ -49,11 +91,11 @@ router.get("/", withAuth, (req, res) => {
 
 // get single dog
 router.get("/edit/:c_id", (req, res) => {
-  Canine.findOne({
-    where: {
-      c_id: req.params.c_id
-    },
-  }, {
+  Canine.findOne(
+  {
+    where: { c_id: req.params.c_id },
+  },
+  {
     attributes: [
       "c_id",
       "c_name",

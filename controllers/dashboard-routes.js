@@ -45,12 +45,12 @@ router.get("/", withAuth, (req, res) => {
 });
 
 // get all dogs for dashboard based on difficulty level
-router.get("/:c_demeanor", withAuth, (req, res) => {
+router.get('/:c_demeaner', (req, res) => {
 console.log('*************************');
 console(req.params.c_demeanor);
 console.log('*************************');
   Canine.findAll({
-    where: { c_id: req.params.c_demeanor },
+    where: { c_demeanor: req.params.c_demeanor },
     order: [['c_name', 'ASC']],
     attributes: [
       'c_id',

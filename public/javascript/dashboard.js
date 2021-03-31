@@ -1,28 +1,33 @@
-/* async function checkboxFormHandler(event) {
-   event.preventDefault();
- 
-   const username = document.querySelector('#username-login').value.trim();
-   const password = document.querySelector('#password-login').value.trim();
- 
-   if (username && password) {
-     const response = await fetch('/api/volunteer/login', {
-       method: 'post',
-       body: JSON.stringify({ username, password }),
-       headers: { 'Content-Type': 'application/json' }
-     });
- 
-     if (response.ok) {
-       // After successfully logged in, redirect to the dashboard
-       document.location.replace('/dashboard');
-     }
-     else {
-       alert(response.statusText);
-     };
+/* const btn = document.querySelector('button');
+
+btn.addEventListener('click', async (clickEvent) => {
+   clickEvent.preventDefault();
+   const radios = document.querySelector('input[type="radio"]:checked');
+   const c_demeanor = parseInt(radios.value);
+   console.log('@@@@@@@@@@@@');
+   console.log(c_demeanor);
+
+   if (c_demeanor === 4) {
+      console.log('@@@@@@@@@@@@');
+      console.log('selected all');
+      document.location.reload('/dashboard');
+   }
+   else {
+      const response = await fetch(`/api/dashboard/${c_demeanor}`, {
+         method: 'POST',
+         body: JSON.stringify({ c_demeanor }),
+         headers: { 'Content-Type': 'application/json'}
+      });
+
+      if (response.ok) {
+         document.location.reload('/dashboard');
+      }
+      else {
+         alert(response.statusText);
+      };
    };
- };
- 
- document.querySelector('.inline').addEventListener('submit', checkboxFormHandler);
- */
+});
+
 // jquery dropdown functionality
 // $('.dropdown-trigger').dropdown();
 
@@ -35,4 +40,4 @@
 //     }
 // };
 
-// happy_tail();
+// happy_tail(); */

@@ -1,44 +1,49 @@
 <h3 class="flow-text">Thank you for helping our friends get their daily potty break and walk! 🐶</h3>
 <br>
-
+<!--
 <div class="row s2">
-    <p>Please select difficulty based on your experience level:</p>
-    <form class="inline" action="#">
+  <p>Please select difficulty based on your experience level:</p>
+  <form class="radio-form" id="radio-form" action="#">
         <div class="col s3">
             <label>
-                <input type="checkbox" class="filled-in" />
+                <input type="radio" name="filter-demeaner" value="1" />
                 <span>Easy</span>
             </label>
         </div>
         <div class="col s3">
             <label>
-                <input type="checkbox" class="filled-in" />
+                <input type="radio" name="filter-demeaner" value="2" />
                 <span>Moderate</span>
             </label>
         </div>
         <div class="col s3">
             <label>
-                <input type="checkbox" class="filled-in" />
+                <input type="radio" name="filter-demeaner" value="3" />
                 <span>Difficult</span>
             </label>
         </div>
         <div class="col s3">
             <label>
-                <input type="checkbox" class="filled-in" />
+                <input type="radio" name="filter-demeaner" value="4" />
                 <span>Select All</span>
             </label>
         </div>
+        <div class="col s3 btn">
+            <button>Show Doggies</button>
+        </div>
     </form>
-
 </div>
 
 <div class="row s2">
     <div class="col s12 center">
+-->
         <!-- Dropdown Trigger -->
+<!--
         <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Select an option to filter doggies
             ⬇</a>
-
+-->
         <!-- Dropdown Structure -->
+<!--
         <ul id='dropdown1' class='dropdown-content'>
             <li><a href="#!">See dogs that need walks</a></li>
             <li><a href="#!">See dogs that need a potty break</a></li>
@@ -51,7 +56,7 @@
         </ul>
     </div>
 </div>
-
+-->
 <div class="row s8">
 
     {{#if (shift_change)}}
@@ -68,9 +73,8 @@
 
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
+<script src="/javascript/dashboard.js"></script>
 {{else}}
 <script src="/javascript/login.js"></script>
 <script src="/javascript/signup.js"></script>
 {{/if}}
-
-<script src="/javascript/dashboard.js"></script>

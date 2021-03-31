@@ -12,7 +12,23 @@
 ## Description
 This is a task tracking site that was created using the Model, View, Controller paradigm.  This site is currently hosted on Heroku at [Heroku Deployment](https://happy-happy-tails.herokuapp.com/) and can also be run locally using the files located in the GitHub repository [Github](https://github.com/nystephens/happy-tails).  To learn how to run this server locally please continue reading the [Installation](#installation) and [Usage](#usage) sections.  
 
-ADD USER STORY AND ACCEPTANCE CRITERIA HERE
+USER STORY:
+AS a shelter employee/volunteer, I WANT to track the dogs daily activities and dogs difficulty levels so that all the dogs are taken care and paired with a compatible caretaker that meets the required experience (to handle to dogs).
+
+ACCEPTANCE CRITERIA:
+When I go to the site, and am not logged in, I am presented with a page that lists all the dogs in the shelter. 
+When homepage should have a link to login.
+If I don’t have an account, be prompted to sign up
+When I login, I am able to quickly identify the dogs that haven’t had a potty break or walk via drop down list
+When i log in, i am presented with  summary of tasks to do for the day
+There will be a box that will allow you to select difficulty level, I am presented with the dog’s difficulty level
+Easy walker
+Moderate
+difficult/experienced handler needed
+When I choose an option from the first drop down menu i am presented 
+Had Walked / Has not been walked
+Has Pottied / Has not been pottied
+View all
 
 This application was created using Node.js, express for the server, and sequelize to connect to a mysql database entitled "happy_tails_db".  All volunteer, canine, and activity data is stored in happy_tails_db.  The live app is currently deployed on Heroku, using the JAWSDB add on to store data.  All passwords have been encrypted using the bcrypt Node.js package.  The HTML views templates are generated using Handlebars.js.
 

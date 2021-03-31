@@ -83,3 +83,17 @@ main {
   text-decoration: none;
   color: inherit;
 }
+/* alert message */
+/* .msg {
+  width:100%;
+  border: 1px solid;
+  padding:10px;
+  margin: 20px;
+  color: grey;
+}
+.msg-error {
+  
+  border-color: #d32f2f;
+  background-color: #ef5350;
+  color: white;
+} */

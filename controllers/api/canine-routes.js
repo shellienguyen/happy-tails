@@ -1,8 +1,39 @@
 const router = require('express').Router();
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
+const nodemailer = require('nodemailer'); //package to send emails
+
 
 const { Canine, Volunteer, Kennel, Demeanor } = require('../../models');
+const { get } = require('../dashboard-routes');
+
+//transporter function for node mailer
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth:{
+      user:process.env.EMAIL,
+      pass:process.env.PASSWORD
+    }
+  });
+  
+  //nodemailer mail option
+  let mailOptions = {
+    from: 'happywaggytailsbootcamp2021@gmail.com',
+    to:'happywaggytailsbootcamp2021@gmail.com',
+    subject: 'Dog activity tracked',
+    text:'A volunteer has taken care of this dog'
+  
+  }
+  let walkAlert = () => {
+  //nodemailer function
+  transporter.sendMail(mailOptions, function(err,data){
+    if(err){
+      console.log('Error Occurs');
+    }else {
+      console.log('Email Sent!!!');
+    }
+    });
+  }
 
 //get all canine
 router.get('/', (req, res) => {
@@ -96,8 +127,9 @@ router.put('/:c_id', (req, res) => {
 
         })
         .then(dbCanineData => {
-            res.json(dbCanineData);
-            res.redirect('/dashboard')
+            return res.json(dbCanineData);
+            // 
+            // res.redirect('/dashboard')
         })
         .catch(err => {
             console.log(err);
@@ -105,6 +137,7 @@ router.put('/:c_id', (req, res) => {
         });
 
 });
+
 
 // create put route for to update
 

@@ -43,16 +43,13 @@ $('.doggie').on('click', async function (evt) {
     };
   }
 
-  console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@');
-  console.log(dogObj);
-  console.log(c_id);
-  console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@');
 
   // api call c_id update pass dogObj
   const response = await fetch(`/api/canine/${c_id}`, {
     method: 'PUT',
     body: JSON.stringify(
-      dogObj
+      dogObj[0],
+      dogObj[1]
     ),
     headers: {
       'Content-Type': 'application/json'
@@ -60,7 +57,7 @@ $('.doggie').on('click', async function (evt) {
   });
 
   if (response.ok) {
-    document.location.replace('/dashboard/');
+    document.location.replace('/dashboard');
   }
   else {
     alert(response.statusText);

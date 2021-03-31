@@ -100,7 +100,6 @@ router.get('/:c_id', (req, res) => {
 
         ]
     }).then(dbCanineData => {
-        //console.log(dbCanineData);
         res.json(dbCanineData);
 
     })

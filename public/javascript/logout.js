@@ -1,5 +1,4 @@
 function logout() {
-    console.log('Hello world');
     fetch('/api/volunteer/logout', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' }

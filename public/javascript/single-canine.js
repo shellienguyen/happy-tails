@@ -5,10 +5,6 @@ $('.doggie').on('click', async function (evt) {
       window.location.toString().split('/').length - 1
     ];
     let shift = moment().hour();
-    console.log('*********************************');
-    console.log(dogbtn);
-    console.log(shift);
-    console.log('*********************************');
     let dogObj;
     let volunteer;
     let potty;
@@ -38,10 +34,6 @@ $('.doggie').on('click', async function (evt) {
         has_potty_pm: potty
       };
     }
-    console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@');
-    console.log(dogObj);
-    console.log(c_id);
-    console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@');
     // api call c_id update pass dogObj
     const response = await fetch(`/api/canine/${c_id}`, {
       method: 'PUT',

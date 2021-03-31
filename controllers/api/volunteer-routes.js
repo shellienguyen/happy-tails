@@ -13,8 +13,6 @@ router.get('/', (req, res) => {
         }
     })
         .then(volunteerData => {
-            console.log(volunteerData);
-            // volunteerData.loggedIn = req.session.loggedIn
             res.json(volunteerData)
         })   
         .catch(err => {
@@ -73,7 +71,6 @@ router.get('/:v_id', (req, res) => {
         }
     })
         .then(volunteerData => {
-            console.log('router.get inside home-routes.js');
             res.json(volunteerData)
         })   
         .catch(err => {
@@ -83,7 +80,6 @@ router.get('/:v_id', (req, res) => {
 
 //Create a new volunteer 
 router.post('/signup', (req, res) => {
-    console.log('create volunteer')
     Volunteer.create({
         v_fname: req.body.v_fname,
         v_lname: req.body.v_lname,

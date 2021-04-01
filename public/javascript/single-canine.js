@@ -10,6 +10,7 @@ $('.doggie').on('click', async function (evt) {
     let potty;
     let walkCheck = $('#walk-check');
     let pottyCheck = $('#potty-check')
+    
     if (walkCheck.is(':checked')) {
       volunteer = $(this).data('v_id')
     } 

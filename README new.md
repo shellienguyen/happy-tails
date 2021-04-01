@@ -95,19 +95,28 @@ After your database is seeded with information you are able to view, edit, and r
 
 Here are some screenshots to demonstrate the functionality and show how the page is rendered.
 
+Signup with redirect to dashboard gif:
+
 ![Signup and Dashboard Redirect](./public/images/happy-tails-signup.gif)
+
+Login with update functionality:
+
 ![Login and Update Functionality](./public/images/login-and-update.gif)
 
 Homepage:
+
 ![Homepage Logged Out]()
 
 Login-Signup:
+
 ![Login-Signup]()
 
 Dashboard:
-![Dashboard]()
+
+![Dashboard](./public/images/dashboard-screenshot.png)
 
 Single Dog Edit:
+
 ![Single Dog Edit](./public/images/single-dog-screenshot.png)
 
 

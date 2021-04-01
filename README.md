@@ -77,9 +77,9 @@ Tier 2 employee (add dogs, remove dogs, remove volunteers, add tier 1 employees)
     Shellie Nguyen
     
   ## Github
-  https://github.com/nystephens
-  https://github.com/alexreveles
-  https://github.com/es2013
+  https://github.com/nystephens <br>
+  https://github.com/alexreveles <br>
+  https://github.com/es2013 <br>
   https://github.com/shellienguyen
 
   ## Test

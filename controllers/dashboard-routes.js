@@ -33,19 +33,18 @@ router.get("/", withAuth, (req, res) => {
   })
     .then(dbCanineData => {
       const canine = dbCanineData.map(canine => canine.get({ plain: true }));
-      res.render('dashboard', {
+            res.render('dashboard', {
         canine,
         loggedIn: req.session.loggedIn
       })
     })
     .catch(err => {
       console.log(err);
-      // res.redirect('login');
     });
 });
 
 // get all dogs for dashboard based on difficulty level
-router.get('/:c_demeaner', (req, res) => {
+/* router.get('/:c_demeaner', (req, res) => {
 console.log('*************************');
 console(req.params.c_demeanor);
 console.log('*************************');
@@ -87,7 +86,7 @@ console.log('*************************');
       console.log(err);
       // res.redirect('login');
     });
-});
+}); */
 
 // get single dog
 router.get("/edit/:c_id", (req, res) => {
@@ -233,7 +232,3 @@ module.exports = router;
 //         res.status(500).json(err);
 //     });
 // });
-
-
-
-

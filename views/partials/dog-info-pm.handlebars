@@ -9,7 +9,8 @@
 <td class="{{demeanor.d_desc}}"> {{demeanor.d_desc}} </td>
 <td> {{kennel.k_name}} </td>
 
-
+{{#if loggedIn}}
 <td><button type="submit" class="waves-effect waves-light btn"><a href="/dashboard/edit/{{c_id}}" class="select-dog">Select</a></button></td>
+{{/if}}
 
 </tr>

@@ -1,4 +1,6 @@
-# happy Tails
+# Happy Tails
+
+![Title Image](./public/images/title-image.png)
 
 ## Table of Contents
 1. [Description](#description)
@@ -93,8 +95,8 @@ After your database is seeded with information you are able to view, edit, and r
 
 Here are some screenshots to demonstrate the functionality and show how the page is rendered.
 
-![](./public/images/happy-tails-signup.gif)
-![](./public/images/login-and-update.gif)
+![Signup and Dashboard Redirect](./public/images/happy-tails-signup.gif)
+![Login and Update Functionality](./public/images/login-and-update.gif)
 
 Homepage:
 ![Homepage Logged Out]()
@@ -106,7 +108,7 @@ Dashboard:
 ![Dashboard]()
 
 Single Dog Edit:
-![Single Dog Edit]()
+![Single Dog Edit](./public/images/single-dog-screenshot.png)
 
 
 ## License

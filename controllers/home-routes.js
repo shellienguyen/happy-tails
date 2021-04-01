@@ -6,7 +6,7 @@ const { Canine, Volunteer, Kennel, Demeanor } = require('../models');
 
 // get all dogs for homepage
 router.get("/", (req, res) => {
-    Canine.findAll({
+        Canine.findAll({
         order: [['c_name', 'ASC']],
         attributes: [
             'c_id',
@@ -34,8 +34,12 @@ router.get("/", (req, res) => {
     })
         .then((dbCanineData) => {
             const canine = dbCanineData.map((canine) => canine.get({ plain: true }));
-            res.render("homepage", { canine });
-            // res.json(dbCanineData);
+
+            if (!req.session.loggedIn) {
+                req.session.loggedIn = false;
+            };
+
+            res.render("homepage", { canine, loggedIn: req.session.loggedIn });
         })
         .catch((err) => {
             res.status(500).json(err);
@@ -59,7 +63,7 @@ router.get('/logout', (req, res) => {
 });
 
 // get all dogs for homepage based on level of difficulties
-router.get("/:c_demeanor", (req, res) => {
+/* router.get("/:c_demeanor", (req, res) => {
     Canine.findAll({
         where: { c_demeanor: req.params.c_demeanor },
         order: [['c_name', 'ASC']],
@@ -95,7 +99,7 @@ router.get("/:c_demeanor", (req, res) => {
         .catch((err) => {
             res.status(500).json(err);
         });
-});
+}); */
 
 // get single dog  
 router.get('/:c_id', (req, res) => {
@@ -142,6 +146,7 @@ router.get('/:c_id', (req, res) => {
                 return;
             }
             const canine = dbCanineData.get({ plain: true });
+
             res.render('single-canine', {
                 canine,
                 loggedIn: req.session.loggedIn

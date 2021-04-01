@@ -37,7 +37,7 @@ let walkAlert = () => {
 
 //get all canine
 router.get('/', (req, res) => {
-    Canine.findAll({
+        Canine.findAll({
         order: [['c_name', 'ASC']],
         attributes: [
             'c_id',
@@ -113,7 +113,7 @@ router.get('/:c_id', (req, res) => {
 })
 
 // get all dogs for dashboard based on difficulty level
-router.get('/:c_demeaner', (req, res) => {
+/* router.get('/:c_demeaner', (req, res) => {
     console.log('$$$$$$$$$$$$$$$$$$$$$$$$$');
     console(req.params.c_demeanor);
     console.log('$$$$$$$$$$$$$$$$$$$$$$$$$');
@@ -151,7 +151,7 @@ router.get('/:c_demeaner', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     })
-});
+}); */
 
 
 //update dog

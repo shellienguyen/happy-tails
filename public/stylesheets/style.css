@@ -28,10 +28,10 @@ main {
 } */
 
 
-nav {
+/* nav {
   height: 70px;
   vertical-align: center;
-}
+} */
 
 footer {
   width: 100%;
@@ -59,7 +59,6 @@ table {
   color: rgb(138, 28, 28);
   font-weight: bold;
 }
-
 
 .login-image {
   max-width: 100%;

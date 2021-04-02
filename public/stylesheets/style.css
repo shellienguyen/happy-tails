@@ -22,6 +22,14 @@ main {
   flex: 1 0 auto;
 }
 
+.deep-purple {
+  background-image: linear-gradient(to right, rgb(139, 29, 167) , rgba(59, 7, 96, 0.762));
+}
+
+/* .select-dog, .btn {
+  background-color:rgb(157, 0, 255);
+} */
+
 /* a {
   color: inherit;
   text-decoration: none;
@@ -79,6 +87,10 @@ table {
   font-size: 2.1rem;
   padding-left: 10px;
   padding-right: 10px;
+  text-shadow: 0 2px rgb(0 0 0), 0 3px rgb(23 21 24);
+  color: white;
+  font-family: "book man old style";
+
 }
 
 .single-dog-image {
@@ -103,6 +115,7 @@ table {
 .select-dog {
   text-decoration: none;
   color: inherit;
+  
 }
 
 .hero {

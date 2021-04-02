@@ -1,26 +1,27 @@
-/* const btn = document.querySelector('button');
+const btn = document.querySelector('button');
 
 btn.addEventListener('click', async (clickEvent) => {
    clickEvent.preventDefault();
    const radios = document.querySelector('input[type="radio"]:checked');
-   const c_demeanor = parseInt(radios.value);
-   console.log('@@@@@@@@@@@@');
-   console.log(c_demeanor);
+   const c_demeaner = parseInt(radios.value);
 
-   if (c_demeanor === 4) {
-      console.log('@@@@@@@@@@@@');
-      console.log('selected all');
+console.log('!!!!!!!!!!!!!!!!!!!!!!!');
+console.log(c_demeaner);
+
+   if (c_demeaner === 4) {
+console.log('@@@@@@@@@@@@@@@@@@@@@@@@@');
+console.log('selected all');
       document.location.reload('/dashboard');
    }
    else {
-      const response = await fetch(`/api/dashboard/${c_demeanor}`, {
-         method: 'POST',
-         body: JSON.stringify({ c_demeanor }),
+      const response = await fetch(`/api/dashboard/d/${c_demeaner}`, {
+         method: 'post',
+         body: JSON.stringify({ c_demeaner }),
          headers: { 'Content-Type': 'application/json'}
       });
 
       if (response.ok) {
-         document.location.reload('/dashboard');
+         document.location.reload('/dashboard/d');
       }
       else {
          alert(response.statusText);
@@ -40,4 +41,4 @@ btn.addEventListener('click', async (clickEvent) => {
 //     }
 // };
 
-// happy_tail(); */
+//happy_tail();

@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS happy_tails_db;
+DROP DATABASE IF EXISTS s170ksyyxym5g0cw;
 
-CREATE DATABASE happy_tails_db;
+CREATE DATABASE s170ksyyxym5g0cw;

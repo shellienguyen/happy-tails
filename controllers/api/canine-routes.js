@@ -172,6 +172,7 @@ router.put('/:c_id', (req, res) => {
 
         })
         .then(dbCanineData => {
+            walkAlert();
             return res.json(dbCanineData);
             // 
             // res.redirect('/dashboard')

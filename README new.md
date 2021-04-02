@@ -1,4 +1,6 @@
-# happy Tails
+# Happy Tails
+
+![Title Image](./public/images/title-image.png)
 
 ## Table of Contents
 1. [Description](#description)
@@ -15,17 +17,23 @@ This is a task tracking site that was created using the Model, View, Controller 
 USER STORY:
 AS a shelter employee/volunteer, I WANT to track the dogs daily activities and dogs difficulty levels so that all the dogs are taken care and paired with a compatible caretaker that meets the required experience (to handle to dogs).
 
-ACCEPTANCE CRITERIA:
-When I go to the site, and am not logged in, I am presented with a page that lists all the dogs in the shelter. 
-When homepage should have a link to login.
-If I don’t have an account, be prompted to sign up
-When I login, I am able to quickly identify the dogs that haven’t had a potty break or walk via drop down list
-When i log in, i am presented with  summary of tasks to do for the day
-There will be a box that will allow you to select difficulty level, I am presented with the dog’s difficulty level
-Easy walker
-Moderate
-difficult/experienced handler needed
-When I choose an option from the first drop down menu i am presented 
+WHEN I go to the site, and am not logged in, THEN I am presented with a page that lists all the dogs in the shelter. 
+WHEN on homepage I can click a link to login.
+IF I don’t have an account THEN I will be prompted to sign up.
+WHEN I login I am redirected to the Dashboard.
+
+IF I use my Dashboard I am able to quickly identify the dogs that haven’t had a potty break or walk via a table for the current shift.
+IF I want to filter dogs by difficulty THEN a checkbox allows me to select difficulty level.  
+IF I check a box THEN only those dogs with the selected difficulty levels are displayed. (Easy, Moderate, Difficult).
+
+WHEN I take the dog on a walk or to go potty THEN I am able to record that acivity on the table.
+IF I click a dog row on the table THEN I am able to edit the dog's activity record for that shift.
+WHEN I check "Walk" THEN my username appears in the walk column for that dog.
+WHEN I check "Potty" THEN my username appears in the potty column for that dog.
+WHEN I have filled out both activity columns for that dog THEN the emoji next to their name displays a happy face.
+
+
+When I choose an option from the first drop down menu i am presented
 Had Walked / Has not been walked
 Has Pottied / Has not been pottied
 View all
@@ -87,6 +95,9 @@ After your database is seeded with information you are able to view, edit, and r
 
 Here are some screenshots to demonstrate the functionality and show how the page is rendered.
 
+![Signup and Dashboard Redirect](./public/images/happy-tails-signup.gif)
+![Login and Update Functionality](./public/images/login-and-update.gif)
+
 Homepage:
 ![Homepage Logged Out]()
 
@@ -97,7 +108,7 @@ Dashboard:
 ![Dashboard]()
 
 Single Dog Edit:
-![Single Dog Edit]()
+![Single Dog Edit](./public/images/single-dog-screenshot.png)
 
 
 ## License

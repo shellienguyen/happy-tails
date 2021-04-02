@@ -9,8 +9,8 @@ console.log('!!!!!!!!!!!!!!!!!!!!!!!');
 console.log(c_demeaner);
 
    if (c_demeaner === 4) {
-      console.log('@@@@@@@@@@@@');
-      console.log('selected all');
+console.log('@@@@@@@@@@@@@@@@@@@@@@@@@');
+console.log('selected all');
       document.location.reload('/dashboard');
    }
    else {
@@ -21,7 +21,7 @@ console.log(c_demeaner);
       });
 
       if (response.ok) {
-         document.location.reload('/dashboard');
+         document.location.reload('/dashboard/d');
       }
       else {
          alert(response.statusText);

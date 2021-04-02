@@ -9,6 +9,7 @@ body, html {
   margin: 0;
   font-family: sans-serif;
   color: #333;
+  background-image:url("/images/paws-1.jpg");
 }
   
 body {
@@ -97,11 +98,12 @@ table {
   max-width: 15vw;
   height: auto;
 }
-.container{
+
+/* .container{
   background-image:url("/images/paws-1.jpg");
   
   
-}
+} */
 
 
 .button-container {

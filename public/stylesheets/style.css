@@ -118,6 +118,9 @@ table {
   border: 10px solid rgba(0,0,0,0.095);
 }
 
+#reset {
+  align-items: right;
+}
 
 /* alert message */
 /* .msg {

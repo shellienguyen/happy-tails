@@ -47,6 +47,19 @@ router.get("/", (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+
+    const todaysSystemDate = new Date();
+    const todaysDate = todaysSystemDate.getDate();
+    const currentMonth = todaysSystemDate.getMonth();
+    const currentYear = todaysSystemDate.getFullYear();
+    
+console.log('~~~~~~~~~~~~~~~~~');
+console.log(todaysSystemDate);
+console.log(todaysDate);
+console.log(currentMonth);
+console.log(currentYear);
+console.log('~~~~~~~~~~~~~~~~~');
+
     if (req.session.loggedIn) {
         res.redirect('/dashboard');
         return;

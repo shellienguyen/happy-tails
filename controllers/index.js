@@ -6,6 +6,7 @@ const homeRoutes = require('./home-routes.js');
 
 // Connect api and front end routes
 router.use('/dashboard', dashboardRoutes);
+router.use('/d/dashboard', dashboardRoutes);
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 

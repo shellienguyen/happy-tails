@@ -48,16 +48,23 @@ router.get("/", (req, res) => {
 
 router.get('/login', (req, res) => {
 
+    const todaysIsoStringDate = new Date().toISOString().split('T')[0];
     const todaysSystemDate = new Date();
-    const todaysDate = todaysSystemDate.getDate();
-    const currentMonth = todaysSystemDate.getMonth();
-    const currentYear = todaysSystemDate.getFullYear();
-    
+
+    Canine.findOne(
+        {attributes: [[sequelize.fn('max', sequelize.col('updated_at')), 'maxDate']],}
+    )
+    .then (dbUpdateAtDate => {
+        //const dbMaxDate = dbUpdateAtDate.map((canine) => canine.get({ plain: true }));
+        const jsonData = json.stringify(dbUpdateAtDate);
+        console.log('===========================');
+        console.log(jsonData);
+        console.log('===========================');
+    });
+
 console.log('~~~~~~~~~~~~~~~~~');
 console.log(todaysSystemDate);
-console.log(todaysDate);
-console.log(currentMonth);
-console.log(currentYear);
+console.log(todaysIsoStringDate);
 console.log('~~~~~~~~~~~~~~~~~');
 
     if (req.session.loggedIn) {

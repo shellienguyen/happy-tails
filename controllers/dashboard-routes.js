@@ -44,7 +44,7 @@ router.get("/", withAuth, (req, res) => {
 });
 
 // get all dogs for dashboard based on difficulty level
-/* router.get('/:c_demeaner', (req, res) => {
+router.get('/d/:c_demeaner', (req, res) => {
 console.log('*************************');
 console(req.params.c_demeanor);
 console.log('*************************');
@@ -84,9 +84,8 @@ console.log('*************************');
     })
     .catch(err => {
       console.log(err);
-      // res.redirect('login');
     });
-}); */
+});
 
 // get single dog
 router.get("/edit/:c_id", (req, res) => {

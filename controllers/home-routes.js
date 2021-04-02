@@ -62,45 +62,6 @@ router.get('/logout', (req, res) => {
     res.render('login-signup');
 });
 
-// get all dogs for homepage based on level of difficulties
-/* router.get("/:c_demeanor", (req, res) => {
-    Canine.findAll({
-        where: { c_demeanor: req.params.c_demeanor },
-        order: [['c_name', 'ASC']],
-        attributes: [
-            'c_id',
-            'c_name',
-            'c_demeanor',
-            [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_am)'), 'has_walked_am'],
-            [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_pm)'), 'has_walked_pm'],
-            [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_am)'), 'has_potty_am'],
-            [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_pm)'), 'has_potty_pm'],
-            'k_id'],
-        include: [
-            {
-                model: Volunteer,
-                attributes: ['username']
-            },
-            {
-                model: Demeanor,
-                attributes: ['d_desc']
-            },
-            {
-                model: Kennel,
-                attributes: ['k_name']
-            }
-        ]
-    })
-        .then((dbCanineData) => {
-            const canine = dbCanineData.map((canine) => canine.get({ plain: true }));
-            res.render("homepage", { canine });
-            // res.json(dbCanineData);
-        })
-        .catch((err) => {
-            res.status(500).json(err);
-        });
-}); */
-
 // get single dog  
 router.get('/:c_id', (req, res) => {
     Canine.findOne({

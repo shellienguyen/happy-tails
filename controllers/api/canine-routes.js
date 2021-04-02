@@ -113,10 +113,10 @@ router.get('/:c_id', (req, res) => {
 })
 
 // get all dogs for dashboard based on difficulty level
-/* router.get('/:c_demeaner', (req, res) => {
-    console.log('$$$$$$$$$$$$$$$$$$$$$$$$$');
-    console(req.params.c_demeanor);
-    console.log('$$$$$$$$$$$$$$$$$$$$$$$$$');
+router.get('/d/:c_demeaner', (req, res) => {
+console.log('$$$$$$$$$$$$$$$$$$$$$$$$$');
+console(req.params.c_demeanor);
+console.log('$$$$$$$$$$$$$$$$$$$$$$$$$');
     Canine.findAll({
         where: { c_demeanor: req.params.c_demeanor },
         order: [['c_name', 'ASC']],
@@ -151,7 +151,7 @@ router.get('/:c_id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     })
-}); */
+});
 
 
 //update dog

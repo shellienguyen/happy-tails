@@ -30,7 +30,7 @@ console.log('selected all');
 });
 
 // jquery dropdown functionality
-// $('.dropdown-trigger').dropdown();
+$('.dropdown-trigger').dropdown();
 
 // function happy_tail() {
 //     // if dog has_walked AND has_pottied then change status-emoji from sad face to happy face 

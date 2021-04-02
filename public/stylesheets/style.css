@@ -35,10 +35,12 @@ main {
 
 footer {
   width: 100%;
+ 
 }
 
 table {
   padding-top: 20px;
+  background-color: #fff;
 }
 
 .align-center {
@@ -83,6 +85,12 @@ table {
   max-width: 15vw;
   height: auto;
 }
+.container{
+  background-image:url("/images/paws-1.jpg");
+  
+  
+}
+
 
 .button-container {
   padding: 10px;
@@ -116,6 +124,7 @@ table {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   border: 10px solid rgba(0,0,0,0.095);
+  
 }
 
 

@@ -139,7 +139,8 @@ table {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   border: 10px solid rgba(0,0,0,0.095);
-  
+  font-weight: bold;
+  text-align: center;
 }
 
 

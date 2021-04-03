@@ -1,7 +1,5 @@
-//const { shift_change } = require("../../utils/helpers");
-
+//Unable to import helpers function into here, hence using local function
 const shift_change = function () {
-   // let currentHour = moment().hour();
    let today = new Date();
    let currentHour = today.getHours();
 
@@ -19,9 +17,11 @@ btn.addEventListener('click', async (clickEvent) => {
    const radios = document.querySelector('input[type="radio"]:checked');
    const c_demeanor = parseInt(radios.value);
 
+   // If the user chooses to view all
    if (c_demeanor === 4) {
       document.location.replace('/dashboard');
    }
+   // If the user chooses filter by one of the three demeanors
    else {
       document.location.replace(`/dashboard/d/${c_demeanor}`)
    };

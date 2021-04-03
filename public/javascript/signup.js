@@ -9,20 +9,16 @@ async function signupFormHandler(event) {
   if (username && password && v_fname && v_lname) {
     const response = await fetch('/api/volunteer/signup', {
       method: 'post',
-      body: JSON.stringify({
-        username,
-        password,
-        v_fname,
-        v_lname
-      }),
+      body: JSON.stringify({ username, password, v_fname, v_lname }),
       headers: { 'Content-Type': 'application/json' }
     });
     if (response.ok) {
       document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
     }
-  }
-}
+    else {
+      alert(response.statusText);
+    };
+  };
+};
 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);

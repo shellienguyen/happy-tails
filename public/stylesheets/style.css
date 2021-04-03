@@ -71,6 +71,10 @@ table {
   font-weight: bold;
 }
 
+.log-cont {
+  background-color: #fff;
+}
+
 .login-image {
   max-width: 100%;
   height: auto;

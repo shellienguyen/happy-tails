@@ -1,12 +1,9 @@
+// Radio button filters for dog deameanor
 const btn = document.querySelector('button');
-
 btn.addEventListener('click', async (clickEvent) => {
    clickEvent.preventDefault();
    const radios = document.querySelector('input[type="radio"]:checked');
    const c_demeanor = parseInt(radios.value);
-
-console.log('!!!!!!!!!!!!!!!!!!!!!!!');
-console.log(c_demeanor);
 
    if (c_demeanor === 4) {
       document.location.replace('/dashboard');
@@ -19,38 +16,34 @@ console.log(c_demeanor);
 // jquery dropdown functionality
 $('.dropdown-trigger').dropdown();
 
-//const viewSelected = document.querySelector("#need-walk");
-
-
+// Dropdown filter for dogs that still need to be walked
 document.querySelector('#need-walk').addEventListener("click", async(clicktEvent) => {
-   //const viewSelected = document.querySelector(".li-item").value;
-   //const viewSelected = clicktEvent.target;
    document.location.replace(`/dashboard/f/needWalk`);
-
-console.log('////////');
-console.log(viewSelected);
-console.log(clicktEvent.target);
-console.log('////////');
-   /* clicktEvent.preventDefault();
-
-   if( clicktEvent.target && clicktEvent.target.matches("li.item")) {
-console.log('//////////////////////////////');
-console.log(clicktEvent.target);
-console.log('//////////////////////////////');
-   }; */
 });
 
-// jquery dropdown functionality
-//$('.dropdown-trigger').dropdown();
+// Dropdown filter for dogs that still need potty
+document.querySelector('#need-potty').addEventListener("click", async(clicktEvent) => {
+   console.log('========================');
+   console.log('Inside needPotty ...');
+   document.location.replace(`/dashboard/f/needPotty`);
+});
 
+// Dropdown filter for dogs that have been walked
+document.querySelector('#have-walked').addEventListener("click", async(clicktEvent) => {
+   document.location.replace(`/dashboard/f/haveWalked`);
+});
 
-// function happy_tail() {
-//     // if dog has_walked AND has_pottied then change status-emoji from sad face to happy face 
-//     if (has_walked_am && has_potty_am || has_walked_pm && has_potty_pm) {
-//         let statusEmoji = document.querySelector('.status-emoji');
+// Dropdown filter for dogs that have gotten their potty
+document.querySelector('#have-potty').addEventListener("click", async(clicktEvent) => {
+   document.location.replace(`/dashboard/f/havePotty`);
+});
 
-//         statusEmoji.innerHTML = "&#128513";
-//     }
-// };
+// Dropdown filter for dogs that have been walked AND have gotten their potty
+document.querySelector('#all-happy').addEventListener("click", async(clicktEvent) => {
+   document.location.replace(`/dashboard/f/allHappy`);
+});
 
-//happy_tail();
+// Dropdown filter for dogs that still need either a walk or a potty
+document.querySelector('#all-sad').addEventListener("click", async(clicktEvent) => {
+   document.location.replace(`/dashboard/f/allSad`);
+});

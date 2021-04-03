@@ -88,6 +88,10 @@ table {
   padding: 10px;
 }
 
+.radio {
+  padding-left: 25px !important;
+}
+
 .check {
   padding-left: 10px;
 }
@@ -119,3 +123,13 @@ table {
   font-weight: bold;
   text-align: center;
 }
+
+/* .container-footer {
+  width: 100%;
+} */
+
+/* @media only screen and (max-width: 450px) {
+  .hero {
+    width: min-content;
+  }
+} */

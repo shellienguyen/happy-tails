@@ -1,9 +1,8 @@
 <main class="container">
     <h3 class="flow-text speech-bubble">Thank you for helping our friends get their daily potty break and walk! 🐶</h3>
-    <br>
 
-    <div class="row s2">
-        <p>Please select difficulty based on your experience level:</p>
+    <div class="row s1">
+        <p class="align-center">Please select difficulty based on your experience level:</p>
         <form class="radio-form" id="radio-form" action="#">
             <div class="col s3">
                 <label>
@@ -29,36 +28,58 @@
                     <span>Select All</span>
                 </label>
             </div>
-            <div class="col">
-                <label>
-                    <span><button class="btn">Show Doggies</button></span>
-                </label>
-            </div>
         </form>
     </div>
 
+    <div class="row s1">
+        <div class="col s4"></div>
+        <div class="col s4 center-align">
+            <label>
+                <span><button class="btn">Show Doggies</button></span>
+            </label>
+        </div>
+        <div class="col s4"></div>
+    </div>
+
+    <br>
+    <br>
+    
     <div class="row s2">
         <div class="col s12 center">
-
             <!-- Dropdown Trigger -->
-
-            <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Select an option to filter doggies
+            <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Select an option to filter
+                doggies
                 ⬇</a>
 
             <!-- Dropdown Structure -->
 
+            <!-- If AM shift-->
+            {{#if (shift_change)}}
             <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#!">See dogs that need walks</a></li>
-                <li><a href="#!">See dogs that need a potty break</a></li>
+                <li id="need-walk-am"><a href="#!">See dogs that need walks</a></li>
+                <li id="need-potty-am"><a href="#!">See dogs that need a potty break</a></li>
                 <li class="divider" tabindex="-1"></li>
-                <li><a href="#!">See dogs who have walked</a></li>
-                <li><a href="#!">See dogs who have gone potty</a></li>
+                <li id="have-walked-am"><a href="#!">See dogs who have walked</a></li>
+                <li id="have-potty-am"><a href="#!">See dogs who have gone potty</a></li>
                 <li class="divider" tabindex="-1"></li>
-                <li><a href="#!">See all happy tails</a></li>
-                <li><a href="#!">See all sad tails</a></li>
+                <li id="all-happy-am"><a href="#!">See all happy tails</a></li>
+                <li id="all-sad-am"><a href="#!">See all sad tails</a></li>
             </ul>
+            {{else}}
+            <!-- If PM shift-->
+            <ul id='dropdown1' class='dropdown-content'>
+                <li id="need-walk-pm"><a href="#!">See dogs that need walks</a></li>
+                <li id="need-potty-pm"><a href="#!">See dogs that need a potty break</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li id="have-walked-pm"><a href="#!">See dogs who have walked</a></li>
+                <li id="have-potty-pm"><a href="#!">See dogs who have gone potty</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li id="all-happy-pm"><a href="#!">See all happy tails</a></li>
+                <li id="all-sad-pm"><a href="#!">See all sad tails</a></li>
+            {{/if}}
         </div>
     </div>
+    <br>
 
     <div class="row s8">
 
@@ -87,8 +108,4 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-{{!--
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-    crossorigin="anonymous"></script> --}}
 <script src="/javascript/dashboard.js"></script>

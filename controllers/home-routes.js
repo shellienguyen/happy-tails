@@ -60,7 +60,6 @@ router.get('/login', (req, res) => {
             const lastUpdatedAtDateJson = tmpDate.split('T')[0];
 
             if (lastUpdatedAtDateJson != todaysDateIsoString) {
-                console.log("not equal");
                 Canine.update({
                     has_walked_am: null,
                     has_walked_pm: null,

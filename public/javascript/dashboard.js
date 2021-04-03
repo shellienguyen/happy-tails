@@ -3,34 +3,59 @@ const btn = document.querySelector('button');
 btn.addEventListener('click', async (clickEvent) => {
    clickEvent.preventDefault();
    const radios = document.querySelector('input[type="radio"]:checked');
-   const c_demeaner = parseInt(radios.value);
+   const c_demeanor = parseInt(radios.value);
 
 console.log('!!!!!!!!!!!!!!!!!!!!!!!');
-console.log(c_demeaner);
+console.log(c_demeanor);
 
-   if (c_demeaner === 4) {
+   if (c_demeanor === 4) {
 console.log('@@@@@@@@@@@@@@@@@@@@@@@@@');
 console.log('selected all');
       document.location.reload('/dashboard');
    }
    else {
-      const response = await fetch(`/api/dashboard/d/${c_demeaner}`, {
-         method: 'post',
-         body: JSON.stringify({ c_demeaner }),
-         headers: { 'Content-Type': 'application/json'}
+      document.location.replace(`/dashboard/d/${c_demeanor}`, {
+         //method: 'post',
+         //body: JSON.stringify({ c_demeanor }),
+         //headers: { 'Content-Type': 'application/json'}
       });
 
-      if (response.ok) {
+      /* if (response.ok) {
          document.location.reload('/dashboard/d');
       }
       else {
          alert(response.statusText);
-      };
+      }; */
    };
 });
 
 // jquery dropdown functionality
 $('.dropdown-trigger').dropdown();
+
+//const viewSelected = document.querySelector("#need-walk");
+
+
+document.querySelector('#need-walk').addEventListener("click", async(clicktEvent) => {
+   //const viewSelected = document.querySelector(".li-item").value;
+   //const viewSelected = clicktEvent.target;
+   document.location.replace(`/dashboard/f/needWalk`);
+
+console.log('////////');
+console.log(viewSelected);
+console.log(clicktEvent.target);
+console.log('////////');
+   /* clicktEvent.preventDefault();
+
+   if( clicktEvent.target && clicktEvent.target.matches("li.item")) {
+console.log('//////////////////////////////');
+console.log(clicktEvent.target);
+console.log('//////////////////////////////');
+   }; */
+});
+
+// jquery dropdown functionality
+//$('.dropdown-trigger').dropdown();
+
 
 // function happy_tail() {
 //     // if dog has_walked AND has_pottied then change status-emoji from sad face to happy face 

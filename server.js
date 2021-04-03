@@ -4,6 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require( './controllers/' );
 const helpers = require('./utils/helpers');
+const logger = require( "morgan" );
 
 const hbs = exphbs.create({ helpers });
 
@@ -23,13 +24,7 @@ const sess = {
   })
 };
 
-
-
-
-
-
-
-
+app.use( logger( "dev" ));
 
 app.use(session(sess));
 

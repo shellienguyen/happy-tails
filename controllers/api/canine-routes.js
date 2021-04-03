@@ -37,7 +37,7 @@ let walkAlert = () => {
 
 //get all canine
 router.get('/', (req, res) => {
-        Canine.findAll({
+    Canine.findAll({
         order: [['c_name', 'ASC']],
         attributes: [
             'c_id',
@@ -100,7 +100,6 @@ router.get('/:c_id', (req, res) => {
                 model: Demeanor,
                 attributes: ['d_desc']
             }
-
         ]
     }).then(dbCanineData => {
         res.json(dbCanineData);
@@ -112,71 +111,23 @@ router.get('/:c_id', (req, res) => {
         });
 })
 
-// get all dogs for dashboard based on difficulty level
-router.get('/d/:c_demeaner', (req, res) => {
-
-console.log('$$$$$$$$$$$$$$$$$$$$$$$$$');
-console(req.params.c_demeanor);
-console.log('$$$$$$$$$$$$$$$$$$$$$$$$$');
-
-    Canine.findAll({
-        where: { c_demeanor: req.params.c_demeanor },
-        order: [['c_name', 'ASC']],
-        attributes: [
-            'c_id',
-            'c_name',
-            'c_demeanor',
-            [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_am)'), 'has_walked_am'],
-            [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_walked_pm)'), 'has_walked_pm'],
-            [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_am)'), 'has_potty_am'],
-            [sequelize.literal('(SELECT volunteer.username FROM volunteer WHERE volunteer.v_id = canine.has_potty_pm)'), 'has_potty_pm'],
-            'k_id'
-        ],
-        include: [
-            {
-                model: Volunteer,
-                attributes: ['v_id', 'username']
-            },
-            {
-                model: Kennel,
-                attributes: ['k_name']
-            },
-            {
-                model: Demeanor,
-                attributes: ['d_desc']
-            }
-        ]
-    }).then(data => {
-        console.log(data);
-        res.json(data);
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
-});
-
-
 //update single dog
 router.put('/:c_id', (req, res) => {
     Canine.update(
         req.body,
-        {
-            where: {
-                c_id: req.params.c_id
-            }
-
-        })
-        .then(dbCanineData => {
-            walkAlert();
-            return res.json(dbCanineData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-
+    {
+        where: {
+            c_id: req.params.c_id
+        }
+    })
+    .then(dbCanineData => {
+        walkAlert();
+        return res.json(dbCanineData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
-
-//delete a dog won't be actviated as volunteers don't have access to delete
 
 module.exports = router;

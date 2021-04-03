@@ -12,51 +12,51 @@ router.get('/', (req, res) => {
             exclude: ['password']
         }
     })
-        .then(volunteerData => {
-            res.json(volunteerData)
-        })   
-        .catch(err => {
-            res.status(500).json(err);
-        })
+    .then(volunteerData => {
+        res.json(volunteerData)
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    });
 });
 
 //login end point for volunteer
-router.post('/login', (req,res) => {
+router.post('/login', (req, res) => {
     Volunteer.findOne({
         where: { username: req.body.username }
     })
     .then(volunteerData => {
-        if(!volunteerData) {
-            res.status(400).json({message: 'That username does not exist!'});
-            return;
-        } ;
-        
-        const validPassword = volunteerData.checkPassword(req.body.password);
-        
-        if(!validPassword){
-            res.status(400).json({message: 'Incorrect password!'});
+        if (!volunteerData) {
+            res.status(400).json({ message: 'That username does not exist!' });
             return;
         };
 
-        req.session.save(()=>{
+        const validPassword = volunteerData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res.status(400).json({ message: 'Incorrect password!' });
+            return;
+        };
+
+        req.session.save(() => {
             req.session.v_id = volunteerData.v_id;
             req.session.username = volunteerData.username;
             req.session.loggedIn = true;
-            res.json({user: volunteerData, message: 'You are now logged in!'});
+            res.json({ user: volunteerData, message: 'You are now logged in!' });
         });
     });
 });
 
 //logout route
-router.post('/logout', (req,res) => {
-    if(req.session.loggedIn){
-        req.session.destroy(()=> {
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
             res.status(204).end();
         });
     }
     else {
         res.status(404).end();
-    }
+    };
 });
 
 
@@ -70,12 +70,12 @@ router.get('/:v_id', (req, res) => {
             v_id: req.params.v_id
         }
     })
-        .then(volunteerData => {
-            res.json(volunteerData)
-        })   
-        .catch(err => {
-            res.status(500).json(err);
-        })
+    .then(volunteerData => {
+        res.json(volunteerData)
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    });
 });
 
 //Create a new volunteer 
@@ -83,22 +83,22 @@ router.post('/signup', (req, res) => {
     Volunteer.create({
         v_fname: req.body.v_fname,
         v_lname: req.body.v_lname,
-        username:req.body.username,
-        password:req.body.password
+        username: req.body.username,
+        password: req.body.password
     })
     .then(volunteerData => {
-        req.session.save(()=> {
-        req.session.v_id = volunteerData.v_id;
-        req.session.username = volunteerData.username;
-        req.session.loggedIn = true;
-        res.json(volunteerData);
-    }) 
+        req.session.save(() => {
+            req.session.v_id = volunteerData.v_id;
+            req.session.username = volunteerData.username;
+            req.session.loggedIn = true;
+            res.json(volunteerData);
+        })
 
     })
     .catch(err => {
         console.log(err)
         res.status(500).json(err);
-    })
+    });
 });
 
 module.exports = router;

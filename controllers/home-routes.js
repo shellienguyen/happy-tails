@@ -7,7 +7,7 @@ const { Op } = require('sequelize');
 
 // get all dogs for homepage
 router.get("/", (req, res) => {
-        Canine.findAll({
+    Canine.findAll({
         order: [['c_name', 'ASC']],
         attributes: [
             'c_id',
@@ -33,18 +33,18 @@ router.get("/", (req, res) => {
             }
         ]
     })
-        .then((dbCanineData) => {
-            const canine = dbCanineData.map((canine) => canine.get({ plain: true }));
+    .then((dbCanineData) => {
+        const canine = dbCanineData.map((canine) => canine.get({ plain: true }));
 
-            if (!req.session.loggedIn) {
-                req.session.loggedIn = false;
-            };
+        if (!req.session.loggedIn) {
+            req.session.loggedIn = false;
+        };
 
-            res.render("homepage", { canine, loggedIn: req.session.loggedIn });
-        })
-        .catch((err) => {
-            res.status(500).json(err);
-        });
+        res.render("homepage", { canine, loggedIn: req.session.loggedIn });
+    })
+    .catch((err) => {
+        res.status(500).json(err);
+    });
 });
 
 router.get('/login', (req, res) => {
@@ -52,9 +52,9 @@ router.get('/login', (req, res) => {
         const todaysDateIsoString = new Date().toISOString().split('T')[0];
 
         Canine.findOne(
-            {attributes: [[sequelize.fn('max', sequelize.col('updated_at')), 'maxDate']],}
+            { attributes: [[sequelize.fn('max', sequelize.col('updated_at')), 'maxDate']], }
         )
-        .then (dbUpdateAtDate => {
+        .then(dbUpdateAtDate => {
             const dbUpdateAtDatejson = JSON.stringify(dbUpdateAtDate);
             const tmpDate = dbUpdateAtDatejson.split('"')[3];
             const lastUpdatedAtDateJson = tmpDate.split('T')[0];
@@ -66,7 +66,7 @@ router.get('/login', (req, res) => {
                     has_potty_am: null,
                     has_potty_pm: null
                 },
-                { where: {c_id: {[Op.gt]: 0}}})
+                { where: { c_id: { [Op.gt]: 0 } } })
             };
         })
         .catch(err => {
@@ -76,7 +76,7 @@ router.get('/login', (req, res) => {
 
         res.redirect('/dashboard');
         return;
-    }
+    };
 
     res.render('login-signup');
 });
@@ -118,29 +118,31 @@ router.get('/:c_id', (req, res) => {
             }
         ]
     })
-        .then(dbCanineData => {
-            if (!dbCanineData) {
-                res.status(404).json({ message: 'No Canine found with that id' });
-                return;
-            }
-            const canine = dbCanineData.get({ plain: true });
+    .then(dbCanineData => {
+        if (!dbCanineData) {
+            res.status(404).json({ message: 'No Canine found with that id' });
+            return;
+        };
 
-            res.render('single-canine', {
-                canine,
-                loggedIn: req.session.loggedIn
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
+        const canine = dbCanineData.get({ plain: true });
+
+        res.render('single-canine', {
+            canine,
+            loggedIn: req.session.loggedIn
         });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
-    }
+    };
+
     res.render('sign-up');
 });
 

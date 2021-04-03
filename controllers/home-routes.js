@@ -3,6 +3,7 @@ const router = require('express').Router();
 const session = require('express-session');
 const sequelize = require('../config/connection');
 const { Canine, Volunteer, Kennel, Demeanor } = require('../models');
+const { Op } = require('sequelize');
 
 // get all dogs for homepage
 router.get("/", (req, res) => {
@@ -47,38 +48,43 @@ router.get("/", (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-
-    const todaysIsoStringDate = new Date().toISOString().split('T')[0];
-    const todaysSystemDate = new Date();
-
-    Canine.findOne(
-        {attributes: [[sequelize.fn('max', sequelize.col('updated_at')), 'maxDate']],}
-    )
-    .then (dbUpdateAtDate => {
-        //const dbMaxDate = dbUpdateAtDate.map((canine) => canine.get({ plain: true }));
-        const jsonData = json.stringify(dbUpdateAtDate);
-        console.log('===========================');
-        console.log(jsonData);
-        console.log('===========================');
-    });
-
-console.log('~~~~~~~~~~~~~~~~~');
-console.log(todaysSystemDate);
-console.log(todaysIsoStringDate);
-console.log('~~~~~~~~~~~~~~~~~');
-
     if (req.session.loggedIn) {
+        const todaysDateIsoString = new Date().toISOString().split('T')[0];
+
+        Canine.findOne(
+            {attributes: [[sequelize.fn('max', sequelize.col('updated_at')), 'maxDate']],}
+        )
+        .then (dbUpdateAtDate => {
+            const dbUpdateAtDatejson = JSON.stringify(dbUpdateAtDate);
+            const tmpDate = dbUpdateAtDatejson.split('"')[3];
+            const lastUpdatedAtDateJson = tmpDate.split('T')[0];
+
+            if (lastUpdatedAtDateJson != todaysDateIsoString) {
+                console.log("not equal");
+                Canine.update({
+                    has_walked_am: null,
+                    has_walked_pm: null,
+                    has_potty_am: null,
+                    has_potty_pm: null
+                },
+                { where: {c_id: {[Op.gt]: 0}}})
+            };
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+
         res.redirect('/dashboard');
         return;
     }
+
     res.render('login-signup');
 });
 
 // logout route
 router.get('/logout', (req, res) => {
-
     req.session.loggedIn = false;
-
     res.render('login-signup');
 });
 
@@ -100,16 +106,8 @@ router.get('/:c_id', (req, res) => {
         ],
         include: [
             {
-                /* model: Volunteer,
-                attributes: ['c_id', 'c_name', 'c_demeanor', 'has_walked_am', 'has_walked_pm', 'has_potty_am', 'has_potty_pm', 'k_id'],
-                include: {
-                    model: Volunteer,
-                    attributes: ['username']
-                } */
-
                 model: Volunteer,
                 attributes: ['username']
-
             },
             {
                 model: Kennel,
@@ -146,6 +144,5 @@ router.get('/signup', (req, res) => {
     }
     res.render('sign-up');
 });
-
 
 module.exports = router;

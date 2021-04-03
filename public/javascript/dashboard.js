@@ -33,17 +33,17 @@ document.querySelector('#have-walked').addEventListener("click", async(clicktEve
    document.location.replace(`/dashboard/f/haveWalked`);
 });
 
-// Dropdown filter for dogs that have been walked
+// Dropdown filter for dogs that have gotten their potty
 document.querySelector('#have-potty').addEventListener("click", async(clicktEvent) => {
    document.location.replace(`/dashboard/f/havePotty`);
 });
 
-// Dropdown filter for dogs that have been walked
+// Dropdown filter for dogs that have been walked AND have gotten their potty
 document.querySelector('#all-happy').addEventListener("click", async(clicktEvent) => {
    document.location.replace(`/dashboard/f/allHappy`);
 });
 
-// Dropdown filter for dogs that have been walked
+// Dropdown filter for dogs that still need either a walk or a potty
 document.querySelector('#all-sad').addEventListener("click", async(clicktEvent) => {
    document.location.replace(`/dashboard/f/allSad`);
 });

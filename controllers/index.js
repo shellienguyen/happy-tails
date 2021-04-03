@@ -3,20 +3,14 @@ const dashboardRoutes = require('./dashboard-routes.js');
 const apiRoutes = require('./api');
 const homeRoutes = require('./home-routes.js');
 
-
 // Connect api and front end routes
 router.use('/dashboard', dashboardRoutes);
 router.use('/dashboard/d', dashboardRoutes);
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 
-
 // Send a 404 error if user goes to undefined route
 router.use((req, res) => {
-console.log('++++++++++++++++');
-console.log(req.body);
-console.log(res);
-console.log('++++++++++++++++');
    res.status(404).end();
 });
 

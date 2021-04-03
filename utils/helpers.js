@@ -5,6 +5,7 @@ let allHelpers = {
     ).getFullYear()}`;
   },
 
+  // Returns true if current time is before noon, false otherwise
   shift_change: () => {
     // let currentHour = moment().hour();
     let today = new Date();
@@ -17,6 +18,8 @@ let allHelpers = {
     return false;
   },
 
+  // Used to check whether a dog's activity is carried out
+  // Returns true if the activity is done, false otherwise
   isDone: (activity) => {
     if (activity) {
       return true;
@@ -25,8 +28,8 @@ let allHelpers = {
     return false;
   },
 
+  // AM shift: If a dog has gotten its potty and walk, return true, false otherwise
   happy_tail_am: (has_walked_am, has_potty_am) => {
-    // if dog has_walked AND has_pottied then change status-emoji from sad face to happy face 
     if (has_walked_am && has_potty_am) {
       return true;
     }
@@ -34,6 +37,7 @@ let allHelpers = {
     return false;
   },
 
+  // PM shift: If a dog has gotten its potty and walk, return true, false otherwise
   happy_tail_pm: (has_walked_pm, has_potty_pm) => {
     // if dog has_walked AND has_pottied then change status-emoji from sad face to happy face 
     if (has_walked_pm && has_potty_pm) {

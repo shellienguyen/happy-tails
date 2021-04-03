@@ -5,10 +5,7 @@ async function newFormHandler(event) {
     const token = localStorage.getItem("token");
     const response = await fetch(`/api/posts`, {
       method: 'POST',
-      body: JSON.stringify({
-        title,
-        body
-      }),
+      body: JSON.stringify({ title, body }),
       headers: {
         'Content-Type': 'application/json',
         authorization: `Bearer ${token}`
@@ -18,6 +15,7 @@ async function newFormHandler(event) {
       document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
-    }
-  }
+    };
+  };
+  
   document.querySelector('#new-post-form').addEventListener('submit', newFormHandler);

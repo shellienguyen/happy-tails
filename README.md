@@ -48,8 +48,7 @@ Tier 1 employee (add dogs, remove dogs)
 Tier 2 employee (add dogs, remove dogs, remove volunteers, add tier 1 employees)
 
 
-
-  ### Happy Tails ![Github License](https://img.shields.io/badge/license-MIT-red.svg)
+### Happy Tails ![Github License](https://img.shields.io/badge/license-MIT-red.svg)
   
   ## Description
   AS a shelter employee/volunteer, I WANT to track the dogs daily activities and dogs difficulty levels so that all the dogs are taken care and paired with a compatible caretaker that meets the required experience (to handle to dogs).
@@ -65,25 +64,27 @@ Tier 2 employee (add dogs, remove dogs, remove volunteers, add tier 1 employees)
   ## Usage
   In order to run this application, When being in the home page you are presented with a sign up form, if you have a login username and password then you will select "Login Instead". Once the User is now logged in you are prompted with the dashboard allowing you to view and identify all dogs in the shelter that havent had a potty break or walk. As a volunteer/User this will quickly help distinguish which dogs have been paired with the Volunteer to be taken cared of and which Canine needs a Volunteer to be taken outside for their daily potty break and walk.  
   
+  
   ## License
   This project is  licensed MIT license.
   ![Github License](https://img.shields.io/badge/license-MIT-red.svg)
-
+  
+  
   ## Contributing
   Contributors: 
     Nathan Stephens,
     Alex Reveles,
     Erika Salcedo,
     Shellie Nguyen
-    
+  
+  
   ## Github
-  https://github.com/nystephens
-  https://github.com/alexreveles
-  https://github.com/es2013
+  https://github.com/nystephens <br>
+  https://github.com/alexreveles <br>
+  https://github.com/es2013 <br>
   https://github.com/shellienguyen
 
-  ## Test
-  The following is needed to run the test: 
+  
   ## Questions
   If you have any questions regarding about the application, please contact us at 
   nathan.yukio.stephens@gmail.com

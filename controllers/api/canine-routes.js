@@ -156,16 +156,9 @@ console.log('$$$$$$$$$$$$$$$$$$$$$$$$$');
 });
 
 
-//update dog
+//update single dog
 router.put('/:c_id', (req, res) => {
     Canine.update(
-        // {
-
-        //     has_walked_am: req.body.has_walked_am,
-        //     has_walked_pm: req.body.has_walked_pm,
-        //     has_potty_am: req.body.has_potty_am,
-        //     has_potty_pm: req.body.has_potty_pm
-        // },
         req.body,
         {
             where: {
@@ -176,8 +169,6 @@ router.put('/:c_id', (req, res) => {
         .then(dbCanineData => {
             walkAlert();
             return res.json(dbCanineData);
-            // 
-            // res.redirect('/dashboard')
         })
         .catch(err => {
             console.log(err);
@@ -185,9 +176,6 @@ router.put('/:c_id', (req, res) => {
         });
 
 });
-
-
-// create put route for to update
 
 //delete a dog won't be actviated as volunteers don't have access to delete
 

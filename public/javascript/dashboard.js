@@ -9,23 +9,10 @@ console.log('!!!!!!!!!!!!!!!!!!!!!!!');
 console.log(c_demeanor);
 
    if (c_demeanor === 4) {
-console.log('@@@@@@@@@@@@@@@@@@@@@@@@@');
-console.log('selected all');
-      document.location.reload('/dashboard');
+      document.location.replace('/dashboard');
    }
    else {
-      document.location.replace(`/dashboard/d/${c_demeanor}`, {
-         //method: 'post',
-         //body: JSON.stringify({ c_demeanor }),
-         //headers: { 'Content-Type': 'application/json'}
-      });
-
-      /* if (response.ok) {
-         document.location.reload('/dashboard/d');
-      }
-      else {
-         alert(response.statusText);
-      }; */
+      document.location.replace(`/dashboard/d/${c_demeanor}`)
    };
 });
 

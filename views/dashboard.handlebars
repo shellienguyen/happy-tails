@@ -1,9 +1,8 @@
 <main class="container">
     <h3 class="flow-text speech-bubble">Thank you for helping our friends get their daily potty break and walk! 🐶</h3>
-    <br>
 
     <div class="row s1">
-        <p>Please select difficulty based on your experience level:</p>
+        <p class="align-center">Please select difficulty based on your experience level:</p>
         <form class="radio-form" id="radio-form" action="#">
             <div class="col s3">
                 <label>
@@ -41,8 +40,10 @@
         </div>
         <div class="col s4"></div>
     </div>
-    <br>
 
+    <br>
+    <br>
+    
     <div class="row s2">
         <div class="col s12 center">
             <!-- Dropdown Trigger -->
@@ -52,16 +53,30 @@
 
             <!-- Dropdown Structure -->
 
+            <!-- If AM shift-->
+            {{#if (shift_change)}}
             <ul id='dropdown1' class='dropdown-content'>
-                <li id="need-walk"><a href="#!">See dogs that need walks</a></li>
-                <li id="need-potty"><a href="#!">See dogs that need a potty break</a></li>
+                <li id="need-walk-am"><a href="#!">See dogs that need walks</a></li>
+                <li id="need-potty-am"><a href="#!">See dogs that need a potty break</a></li>
                 <li class="divider" tabindex="-1"></li>
-                <li id="have-walked"><a href="#!">See dogs who have walked</a></li>
-                <li id="have-potty"><a href="#!">See dogs who have gone potty</a></li>
+                <li id="have-walked-am"><a href="#!">See dogs who have walked</a></li>
+                <li id="have-potty-am"><a href="#!">See dogs who have gone potty</a></li>
                 <li class="divider" tabindex="-1"></li>
-                <li id="all-happy"><a href="#!">See all happy tails</a></li>
-                <li id="all-sad"><a href="#!">See all sad tails</a></li>
+                <li id="all-happy-am"><a href="#!">See all happy tails</a></li>
+                <li id="all-sad-am"><a href="#!">See all sad tails</a></li>
             </ul>
+            {{else}}
+            <!-- If PM shift-->
+            <ul id='dropdown1' class='dropdown-content'>
+                <li id="need-walk-pm"><a href="#!">See dogs that need walks</a></li>
+                <li id="need-potty-pm"><a href="#!">See dogs that need a potty break</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li id="have-walked-pm"><a href="#!">See dogs who have walked</a></li>
+                <li id="have-potty-pm"><a href="#!">See dogs who have gone potty</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li id="all-happy-pm"><a href="#!">See all happy tails</a></li>
+                <li id="all-sad-pm"><a href="#!">See all sad tails</a></li>
+            {{/if}}
         </div>
     </div>
     <br>

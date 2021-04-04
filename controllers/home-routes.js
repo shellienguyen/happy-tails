@@ -47,10 +47,19 @@ router.get("/", (req, res) => {
     });
 });
 
+/*
+Upon loggin in, the function will query the latest date from the 
+updated_at column from the canine model, if the latest date is older
+than today's date, then set the 4 walk and potty columns to null.  If
+the latest updated_at date is the same as today's date, then no changes
+will be made to the 4 walk and potty columns.
+*/
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
+        // Get and parse today's date to YYYY-MM-DD format
         const todaysDateIsoString = new Date().toISOString().split('T')[0];
 
+        //Query the lastest updated_at date from the canine model
         Canine.findOne(
             { attributes: [[sequelize.fn('max', sequelize.col('updated_at')), 'maxDate']], }
         )
@@ -59,6 +68,7 @@ router.get('/login', (req, res) => {
             const tmpDate = dbUpdateAtDatejson.split('"')[3];
             const lastUpdatedAtDateJson = tmpDate.split('T')[0];
 
+            // if the latest updated_at date is not today, then reset the 4 potty and walk columns to null
             if (lastUpdatedAtDateJson != todaysDateIsoString) {
                 Canine.update({
                     has_walked_am: null,
@@ -74,6 +84,7 @@ router.get('/login', (req, res) => {
             res.status(500).json(err);
         });
 
+        // Take the user to the dashboard
         res.redirect('/dashboard');
         return;
     };

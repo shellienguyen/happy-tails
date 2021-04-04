@@ -126,7 +126,7 @@ After your database is seeded with information you are able to view, edit, and r
 
 #### Updating a dog's activity:
 
-![Update Dog](./public/images/happy-tails-udpate.gif)
+![Update Dog](./public/images/happy-tails-update.gif)
 ![Single Dog Edit](./public/images/single-dog-screenshot.png)
 
 #### View the dashboard based on filters:

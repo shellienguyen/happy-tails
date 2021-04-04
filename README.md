@@ -102,7 +102,7 @@ Tier 2 employee (add dogs, remove dogs, remove volunteers, add tier 1 employees)
   ![](./public/images/happy-tails-signup-login.gif)
   
   ### Updating a dog's activity status
-  ![](./public/images/happy-tails-udpate.gif)
+  ![](./public/images/happy-tails-update.gif)
   
   ### View dogs by difficulty level filters
   ![](./public/images/happy-tails-difficulty-filters.gif)

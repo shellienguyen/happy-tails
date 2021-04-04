@@ -97,15 +97,17 @@ Tier 2 employee (add dogs, remove dogs, remove volunteers, add tier 1 employees)
   ![](./images/dashboard.png)
   ![](./images/single-canine.png)
   
+  
   ## Animated GIFs showing how the Happy Tails application works:
   ### Signup and Login Process
   ![](./public/images/happy-tails-signup-login.gif)
-  <br>
+  <br><br>
   ### Updating a dog's activity status
   ![](./public/images/happy-tails-update.gif)
-  <br>
+  <br><br>
   ### View dogs by difficulty level filters
   ![](./public/images/happy-tails-difficulty-filters.gif)
-  <br>
+  <br><br>
   ### View dogs by activity filters
   ![](./public/images/happy-tails-dropdown-filters.gif)
+  <br>

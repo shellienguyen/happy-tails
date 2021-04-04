@@ -115,6 +115,7 @@ After your database is seeded with information you are able to view, edit, and r
 #### The Homepage:
 
 ![Homepage Logged Out](./public/images/homepage-logged-out.png)
+
 <br><br>
 #### The Login-Signup Process:
 

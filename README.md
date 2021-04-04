@@ -111,30 +111,28 @@ Now that your database and tables are created you can seed the database with the
 After your database is seeded with information you are able to view, edit, and record dog activity using your local server.  To start the server type the command "npm start" into your terminal while in the root directory and navigate to http://localhost:3001/ in your browser.  This will take you to the hompeage and from there you can interact with the blog site.  To view the application in its current deployed environment visit [Heroku Deployment](https://happy-happy-tails.herokuapp.com/)
 
 ## Images and Animated GIFs to demonstrate the functionality of the Happy Tails application.
-
+<br><br>
 #### The Homepage:
 
 ![Homepage Logged Out](./public/images/homepage-logged-out.png)
-
+<br><br>
 #### The Login-Signup Process:
 
 ![Signup and Login](./public/images/happy-tails-signup-login.gif)
-
+<br><br>
 #### The Dashboard:
 
 ![Dashboard](./public/images/dashboard.png)
-
+<br><br>
 #### Updating a dog's activity:
 
-![Update Dog](./public/images/happy-tails-update.gif)
+![Update Dog](./public/images/happy-tails-update.gif)<br>
 ![Single Dog Edit](./public/images/single-dog-screenshot.png)
-
+<br><br>
 #### View the dashboard based on filters:
 
-![Difficulty Filters](./public/images/happy-tails-difficulty-filters.gif)
-
+![Difficulty Filters](./public/images/happy-tails-difficulty-filters.gif)<br>
 ![Dropdown Filters](./public/images/happy-tails-dropdown-filters.gif)
-
 
 ## License
 ![MIT license](https://img.shields.io/badge/license-MIT-brightgreen)

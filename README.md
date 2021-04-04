@@ -114,25 +114,25 @@ Here are some screenshots and gifs to demonstrate the functionality and show how
 
 Homepage:
 
-![Homepage Logged Out]()
+![Homepage Logged Out](./public/images/homepage-logged-out.png)
 
 Login-Signup:
 
-![Signup and Login](./images/happy-tails-signup-login.gif)
+![Signup and Login](./public/images/happy-tails-signup-login.gif)
 
 Dashboard:
 
-![Dashboard](./images/dashboard.png)
+![Dashboard](./public/images/dashboard.png)
 
-![Update Dog](./images/happy-tails-udpate.gif)
+![Update Dog](./public/images/happy-tails-udpate.gif)
 
-![Difficulty Filters](./images/happy-tails-difficulty-filters.gif)
+![Difficulty Filters](./public/images/happy-tails-difficulty-filters.gif)
 
-![Dropdown Filters](./images/happy-tails-dropdown-filters.gif)
+![Dropdown Filters](./public/images/happy-tails-dropdown-filters.gif)
 
 Single Dog Edit:
 
-![Single Dog Edit](./images/single-canine.png)
+![Single Dog Edit](./public/images/single-dog-screenshot.png)
 
 
 ## License

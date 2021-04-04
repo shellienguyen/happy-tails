@@ -15,30 +15,43 @@
 This is a task tracking site that was created using the Model, View, Controller paradigm.  This site is currently hosted on Heroku at [Heroku Deployment](https://happy-happy-tails.herokuapp.com/) and can also be run locally using the files located in the GitHub repository [Github](https://github.com/nystephens/happy-tails).  To learn how to run this server locally please continue reading the [Installation](#installation) and [Usage](#usage) sections.  
 
 USER STORY:
-AS a shelter employee/volunteer, I WANT to track the dogs daily activities and dogs difficulty levels so that all the dogs are taken care and paired with a compatible caretaker that meets the required experience (to handle to dogs).
+AS a shelter employee/volunteer, I WANT to track the dogs daily activities and dogs difficulty levels so that all the dogs are taken care of and paired with a compatible caretaker that meets the required experience.
 
-WHEN I go to the site, and am not logged in, THEN I am presented with a page that lists all the dogs in the shelter. 
-WHEN on homepage I can click a link to login.
+WHEN I go to the site, and am not logged in, 
+THEN I am presented with a page that lists all the dogs in the shelter. 
+WHEN on the homepage I can click a link in the navbar to login.
 IF I don’t have an account THEN I will be prompted to sign up.
+WHEN I enter my password to sign up 
+THEN that password is safely encrypted using the bcrypt package.
+WHEN I enter a valid username and password 
+THEN I am able to login.
 WHEN I login I am redirected to the Dashboard.
 
 IF I use my Dashboard I am able to quickly identify the dogs that haven’t had a potty break or walk via a table for the current shift.
 IF I want to filter dogs by difficulty THEN a checkbox allows me to select difficulty level.  
 IF I check a box THEN only those dogs with the selected difficulty levels are displayed. (Easy, Moderate, Difficult).
+IF I want to see all dogs who have been walked for that shift,
+OR I want to see all dogs who haven't been walked for that shift,
+THEN I can select a dropdown option to veiw those dogs.
+IF I want to see all dogs who have gone potty for that shift,
+OR I want to see all dogs who haven't gone potty for that shift,
+THEN I can select a dropdown option to veiw those dogs.
+IF I want to see all dogs who have been walked AND gone potty for that shift,
+OR I want to see all dogs who haven't been walked OR gone potty for that shift,
+THEN I can select a dropdown option to veiw those dogs.
 
 WHEN I take the dog on a walk or to go potty THEN I am able to record that acivity on the table.
-IF I click a dog row on the table THEN I am able to edit the dog's activity record for that shift.
-WHEN I check "Walk" THEN my username appears in the walk column for that dog.
-WHEN I check "Potty" THEN my username appears in the potty column for that dog.
+IF I click a dog row on the table 
+THEN I am able to edit the dog's activity record for that shift.
+WHEN I check "Walk" 
+THEN my username appears in the walk column for that dog.
+WHEN I check "Potty" 
+THEN my username appears in the potty column for that dog.
 WHEN I have filled out both activity columns for that dog THEN the emoji next to their name displays a happy face.
+WHEN new activity is recorded for a dog
+THEN an email notification is sent via Nodemailer to a designated handler's email.
 
-
-When I choose an option from the first drop down menu i am presented
-Had Walked / Has not been walked
-Has Pottied / Has not been pottied
-View all
-
-This application was created using Node.js, express for the server, and sequelize to connect to a mysql database entitled "happy_tails_db".  All volunteer, canine, and activity data is stored in happy_tails_db.  The live app is currently deployed on Heroku, using the JAWSDB add on to store data.  All passwords have been encrypted using the bcrypt Node.js package.  The HTML views templates are generated using Handlebars.js.
+This application was created using Node.js, express to launch the server, and sequelize to connect to a mysql database entitled "happy_tails_db".  All volunteer, canine, and activity data is stored in happy_tails_db.  The live app is currently deployed on Heroku, using the JAWSDB add on to store data.  All passwords have been encrypted using the bcrypt Node.js package.  The HTML views templates are generated using Handlebars.js.
 
 ## Installation
 1.  Navigate to the GitHub repository ( https://github.com/nystephens/happy-tails ) in your web browser and click the green dropdown menu that says “Code”.  Copy the SSH key to your clipboard and then open your terminal.  
@@ -64,6 +77,7 @@ This application was created using Node.js, express for the server, and sequeliz
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
+    "nodemailer": "^6.5.0",
     "nodemon": "^2.0.7",
     "sequelize": "^6.6.2"  
     
@@ -73,7 +87,7 @@ This application was created using Node.js, express for the server, and sequeliz
 
 
 ## Usage
-Users of this site are allowed to veiw the homepage and ccurrent dog activity records, but they are not allowed to create or interact with blog posts until they are signed in.  A click on the "login" button on the navbar will take the user to a page that asks for them to either log in or create a new user account.  Once the user account is created or existing user info is entered you will be signed in and able to log the activity of shelter dogs by navigating to the Dashboard.  On the dashboard you will be presented with the table for the current shift.  The table for each shift has 5 columns:  Doggy Name, AM or PM Walk, AM or PM Potty, Doggy Demeanor, and Kennel.  The dog info in each row will be color coded by difficulty for a quick reference, but filters can also be applied to show only select rows based on demeanor or activity status.  
+Users of this site are allowed to veiw the homepage and current dog activity records, but they are not allowed to create or interact with blog posts until they are signed in.  A click on the "login" button on the navbar will take the user to a page that asks for them to either log in or create a new user account.  Once the user account is created or existing user info is entered you will be signed in and able to log the activity of shelter dogs by navigating to the dashboard.  On the dashboard you will be presented with the table for the current shift.  The table for each shift has 5 columns:  Doggy Name, AM or PM Walk, AM or PM Potty, Doggy Demeanor, and Kennel.  The dog info in each row will be color coded by difficulty for a quick reference, but additional filters can be applied to show only select rows based on demeanor or activity status.  A status emoji will be beside the dog's name indicating the dog's status as either happy or sad.  When both columns for walk and potty have been comleted then the dog's status will change from sad to happy.
 
 If you wish to run the serve locally you must first create and seed your MySQL database.  Before you can create and seed the database you must create your .env file.  
 
@@ -86,6 +100,9 @@ DB_USER=\<your mysql username\>
 DB_PW=\<your mysql password\>
 
 DB_HOST='localhost'
+
+PASSWORD=B00tC@MP2021
+EMAIL=happywaggytailsbootcamp2021@gmail.com
 
 Once your .env file is created you will be able to run the source command in mysql.  Log into mysql by entering the command "mysql -u \<your mysql username\> -p"  in  your terminal in the root directory.  Enter your password.  Once you are logged in run the command "source db/schema.sql".  When that is finished with no errors you can quit out of mysql by running the command "quit".
 
@@ -137,7 +154,11 @@ Before contributing please read the entire README.md file and contact the author
 There are certain feaures that we would love to add to make this application strong and complete.  For instance we would like to add a tiered user system where a shelter employee could add and remove dogs from the database to stay in line with the actual shelter capacity.  An even higher tiered shelter manager profile could have even further administration priviledges.  This highest tier would be able to add and remove dogs, volunteers, and staff.  That way if a new employee is fired/quits or a volunteer no longer lends their services the manager can remove those users allowing them to keep their database secure from unauthorized users.
 
 ## Tests
-To test this application you can run the server locally or navigate to the [Heroku Deployment](https://powerful-wave-29911.herokuapp.com/)  and test the functionality of the app.  You can even check the raw json data by entering the endpoints: "/api/volunteer", "/api/canine", /api/demeanor/ and "/api/kennel" in your browser.  You will then be able to cross-reference the raw data with the data presented in the happy tails tables.  You can also add an additional endpoint containing the id of a certain data point to reference a single object( "/\<id number\>/" ). for instance "/api/canine/1" would return information about the dog with the id of 1.  
+To test this application you can run the server locally or navigate to the [Heroku Deployment](https://powerful-wave-29911.herokuapp.com/)  and test the functionality of the app as described in the [Description](#description) and [Usage](#usage) sections.  
+
+You can check the raw json data by entering the endpoints: "/api/volunteer", "/api/canine", /api/demeanor/ and "/api/kennel" in your browser.  You will then be able to cross-reference the raw data with the data presented in the happy tails tables.  You can also add an additional endpoint containing the id of a certain data point to reference a single object( "/\<id number\>/" ). for instance "/api/canine/1" would return information about the dog with the id of 1.  
+
+To test nodemailer notifications you can change the notification recieving email by entering your personal email into the "to:" section of the nodemailer configuration (canine-rotes line 22).  This will allow you to receive notificaions to your email after activity has been updated. 
 
 ## Questions
 For questions or concerns regarding this project or future collaborations please contact the authors via GitHub at:

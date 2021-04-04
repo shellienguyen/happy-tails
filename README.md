@@ -17,39 +17,39 @@ This is a task tracking site that was created using the Model, View, Controller 
 USER STORY:
 AS a shelter employee/volunteer, I WANT to track the dogs daily activities and dogs difficulty levels so that all the dogs are taken care of and paired with a compatible caretaker that meets the required experience.
 
-WHEN I go to the site, and am not logged in, 
-THEN I am presented with a page that lists all the dogs in the shelter. 
-WHEN on the homepage I can click a link in the navbar to login.
-IF I don’t have an account THEN I will be prompted to sign up.
-WHEN I enter my password to sign up 
-THEN that password is safely encrypted using the bcrypt package.
-WHEN I enter a valid username and password 
-THEN I am able to login.
-WHEN I login I am redirected to the Dashboard.
+WHEN I go to the site, and am not logged in,<br>
+THEN I am presented with a page that lists all the dogs in the shelter.<br>
+WHEN on the homepage I can click a link in the navbar to login.<br>
+IF I don’t have an account THEN I will be prompted to sign up.<br>
+WHEN I enter my password to sign up<br>
+THEN that password is safely encrypted using the bcrypt package.<br>
+WHEN I enter a valid username and password<br>
+THEN I am able to login.<br>
+WHEN I login I am redirected to the Dashboard.<br>
 
-IF I use my Dashboard I am able to quickly identify the dogs that haven’t had a potty break or walk via a table for the current shift.
-IF I want to filter dogs by difficulty THEN a checkbox allows me to select difficulty level.  
-IF I check a box THEN only those dogs with the selected difficulty levels are displayed. (Easy, Moderate, Difficult).
-IF I want to see all dogs who have been walked for that shift,
-OR I want to see all dogs who haven't been walked for that shift,
-THEN I can select a dropdown option to veiw those dogs.
-IF I want to see all dogs who have gone potty for that shift,
-OR I want to see all dogs who haven't gone potty for that shift,
-THEN I can select a dropdown option to veiw those dogs.
-IF I want to see all dogs who have been walked AND gone potty for that shift,
-OR I want to see all dogs who haven't been walked OR gone potty for that shift,
-THEN I can select a dropdown option to veiw those dogs.
+IF I use my Dashboard I am able to quickly identify the dogs that haven’t had a potty break or walk via a table for the current shift.<br>
+IF I want to filter dogs by difficulty THEN a checkbox allows me to select difficulty level.<br>
+IF I check a box THEN only those dogs with the selected difficulty levels are displayed. (Easy, Moderate, Difficult).<br>
+IF I want to see all dogs who have been walked for that shift,<br>
+OR I want to see all dogs who haven't been walked for that shift,<br>
+THEN I can select a dropdown option to veiw those dogs.<br>
+IF I want to see all dogs who have gone potty for that shift,<br>
+OR I want to see all dogs who haven't gone potty for that shift,<br>
+THEN I can select a dropdown option to veiw those dogs.<br>
+IF I want to see all dogs who have been walked AND gone potty for that shift,<br>
+OR I want to see all dogs who haven't been walked OR gone potty for that shift,<br>
+THEN I can select a dropdown option to view those dogs.<br>
 
-WHEN I take the dog on a walk or to go potty THEN I am able to record that acivity on the table.
-IF I click a dog row on the table 
-THEN I am able to edit the dog's activity record for that shift.
-WHEN I check "Walk" 
-THEN my username appears in the walk column for that dog.
-WHEN I check "Potty" 
-THEN my username appears in the potty column for that dog.
-WHEN I have filled out both activity columns for that dog THEN the emoji next to their name displays a happy face.
-WHEN new activity is recorded for a dog
-THEN an email notification is sent via Nodemailer to a designated handler's email.
+WHEN I take the dog on a walk or to go potty THEN I am able to record that acivity on the table.<br>
+IF I click a dog row on the table <br>
+THEN I am able to edit the dog's activity record for that shift.<br>
+WHEN I check "Walk" <br>
+THEN my username appears in the walk column for that dog.<br>
+WHEN I check "Potty"<br>
+THEN my username appears in the potty column for that dog.<br>
+WHEN I have filled out both activity columns for that dog THEN the emoji next to their name displays a happy face.<br>
+WHEN new activity is recorded for a dog<br>
+THEN an email notification is sent via Nodemailer to a designated handler's email.<br>
 
 This application was created using Node.js, express to launch the server, and sequelize to connect to a mysql database entitled "happy_tails_db".  All volunteer, canine, and activity data is stored in happy_tails_db.  The live app is currently deployed on Heroku, using the JAWSDB add on to store data.  All passwords have been encrypted using the bcrypt Node.js package.  The HTML views templates are generated using Handlebars.js.
 
@@ -68,18 +68,18 @@ This application was created using Node.js, express to launch the server, and se
 
 7.  Check your newly downloaded “node_modules” folder to ensure that the correct packages have been installed.  The dependencies that are not included within the general Node module package are:
 
-    "bcrypt": "^5.0.1",
-    "connect-session-sequelize": "^7.1.1",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.2.1",
-    "express-session": "^1.17.1",
-    "morgan": "^1.10.0",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.2.5",
-    "nodemailer": "^6.5.0",
-    "nodemon": "^2.0.7",
-    "sequelize": "^6.6.2"  
+    "bcrypt": "^5.0.1",<br>
+    "connect-session-sequelize": "^7.1.1",<br>
+    "dotenv": "^8.2.0",<br>
+    "express": "^4.17.1",<br>
+    "express-handlebars": "^5.2.1",<br>
+    "express-session": "^1.17.1",<br>
+    "morgan": "^1.10.0",<br>
+    "mysql": "^2.18.1",<br>
+    "mysql2": "^2.2.5",<br>
+    "nodemailer": "^6.5.0",<br>
+    "nodemon": "^2.0.7",<br>
+    "sequelize": "^6.6.2"<br>
     
     If these packages are not present within your Node modules folder then run the command “npm install \<package-name\>” to install the missing packages. 
 
@@ -87,7 +87,7 @@ This application was created using Node.js, express to launch the server, and se
 
 
 ## Usage
-Users of this site are allowed to veiw the homepage and current dog activity records, but they are not allowed to create or interact with blog posts until they are signed in.  A click on the "login" button on the navbar will take the user to a page that asks for them to either log in or create a new user account.  Once the user account is created or existing user info is entered you will be signed in and able to log the activity of shelter dogs by navigating to the dashboard.  On the dashboard you will be presented with the table for the current shift.  The table for each shift has 5 columns:  Doggy Name, AM or PM Walk, AM or PM Potty, Doggy Demeanor, and Kennel.  The dog info in each row will be color coded by difficulty for a quick reference, but additional filters can be applied to show only select rows based on demeanor or activity status.  A status emoji will be beside the dog's name indicating the dog's status as either happy or sad.  When both columns for walk and potty have been comleted then the dog's status will change from sad to happy.
+Users of this site are allowed to view the homepage and current dog activity records, but they are not allowed to create or interact with blog posts until they are signed in.  A click on the "login" button on the navbar will take the user to a page that asks for them to either log in or create a new user account.  Once the user account is created or existing user info is entered you will be signed in and able to log the activity of shelter dogs by navigating to the dashboard.  On the dashboard you will be presented with the table for the current shift.  The table for each shift has 5 columns:  Doggy Name, AM or PM Walk, AM or PM Potty, Doggy Demeanor, and Kennel.  The dog info in each row will be color coded by difficulty for a quick reference, but additional filters can be applied to show only select rows based on demeanor or activity status.  A status emoji will be beside the dog's name indicating the dog's status as either happy or sad.  When both columns for walk and potty have been completed then the dog's status will change from sad to happy.
 
 If you wish to run the serve locally you must first create and seed your MySQL database.  Before you can create and seed the database you must create your .env file.  
 

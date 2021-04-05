@@ -50,6 +50,8 @@ THEN my username appears in the potty column for that dog.<br>
 WHEN I have filled out both activity columns for that dog THEN the emoji next to their name displays a happy face.<br>
 WHEN new activity is recorded for a dog<br>
 THEN an email notification is sent via Nodemailer to a designated handler's email.<br>
+WHEN a user is the first person to log in for the day<br>
+THEN the walk and potty data will be reset to null to start the day with fresh data.<br>
 
 This application was created using Node.js, express to launch the server, and sequelize to connect to a mysql database entitled "happy_tails_db".  All volunteer, canine, and activity data is stored in happy_tails_db.  The live app is currently deployed on Heroku, using the JAWSDB add on to store data.  All passwords have been encrypted using the bcrypt Node.js package.  The HTML views templates are generated using Handlebars.js.
 
